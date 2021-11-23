@@ -1,12 +1,9 @@
-import { NavBar } from "components/NavBar";
-
+import { NavBarHeader } from "components/NavBar";
 
 const Home = () => {
   return (
     <>
-      <NavBar/>
-      
-     
+      <NavBarHeader />
     </>
   );
 };
