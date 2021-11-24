@@ -1,28 +1,37 @@
-export const Card = () => {
+/* eslint-disable jsx-a11y/alt-text */
+type CardType = {
+  card: {
+    date: string
+    genre: string
+    id: string
+    img: string
+    title: string,
+    description: string
+  }
+};
+
+export const Card = ({ card } : CardType) => {
   return (
-    <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
+    <div className="flex flex-col items-startspace-y-3" style={{minWidth: '215px'}}>
       <a href="#_" className="block">
         <img
           className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
-          src="https://cdn.devdojo.com/images/may2021/fruit.jpg"
+          src={card.img}
         />
       </a>
       <div className="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-        <span>Lifestyle</span>
+        <span>{card.genre}</span>
       </div>
       <h2 className="text-lg font-bold sm:text-xl md:text-2xl">
-        <a href="#_">Creating a Future Worth Living</a>
+        <a href="#_">{card.title}</a>
       </h2>
       <p className="text-sm text-gray-500">
-        Learn the attributes you need to gain in order to build a future and
-        create a life that you are truly happy with.
+        {card.description}
       </p>
       <p className="pt-2 text-xs font-medium">
-        <a href="#_" className="mr-1 underline">
-          Mary Jane
-        </a>{" "}
-        · <span className="mx-1">April 17, 2021</span> ·{" "}
-        <span className="mx-1 text-gray-600">3 min. read</span>
+        
+        · <span className="mx-1">{card.date}</span> ·{" "}
+        <span className="mx-1 text-gray-600">60 min</span>
       </p>
     </div>
   );

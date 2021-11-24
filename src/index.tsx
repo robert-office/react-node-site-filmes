@@ -3,6 +3,10 @@ import App from './App';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+if (process.env.NODE_ENV === "development") {
+  require('./miragejs/server').makeServer();
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
