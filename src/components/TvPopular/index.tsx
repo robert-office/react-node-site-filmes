@@ -3,16 +3,16 @@ import { http } from "services/api";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
 
-export const Recomendeds = () => {
+export const TvPopular = () => {
   const [cards, setCards] = useState([]);
   
   const envolviment = {
-    SectionTitle : "Recomendados",
-    SectionSubTitle: "Filmes"
+    SectionTitle : "Popular",
+    SectionSubTitle: "Tv / Séries"
   }
 
   useEffect(() => {
-    http.get("/movie/recomends").then(({ data }) => setCards(data.cards));
+    http.get("/tv/popular").then(({ data }) => setCards(data.cards));
   }, []);
 
   return (

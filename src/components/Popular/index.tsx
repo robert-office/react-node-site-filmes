@@ -3,16 +3,16 @@ import { http } from "services/api";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
 
-export const Recomendeds = () => {
+export const MoviePopular = () => {
   const [cards, setCards] = useState([]);
   
   const envolviment = {
-    SectionTitle : "Recomendados",
+    SectionTitle : "Popular",
     SectionSubTitle: "Filmes"
   }
 
   useEffect(() => {
-    http.get("/movie/recomends").then(({ data }) => setCards(data.cards));
+    http.get("/movie/popular").then(({ data }) => setCards(data.cards));
   }, []);
 
   return (

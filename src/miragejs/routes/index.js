@@ -8,4 +8,12 @@ export default function routes() {
   this.get("/movie/recomends", (schema) => {
     return schema.cards.all()
   });
+
+  this.get("/movie/popular", (schema) => {
+    return schema.cards.all()
+  });
+
+  this.get("/tv/popular", (schema) => {
+    return schema.cards.all()
+  });
 }

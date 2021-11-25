@@ -17,7 +17,7 @@ export default {
       return faker.fake('{{date.month}}');
     },
     description(){
-      return faker.fake('{{commerce.productDescription}}')
+      return faker.fake('{{commerce.productDescription}}');
     }
   })
 };

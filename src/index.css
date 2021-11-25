@@ -8,4 +8,49 @@
     body{
         @apply bg-bgColor;
     }
+    
+    {{ /* non black text colors */ }}
+
+    .primaryNonDarkColorText {
+        @apply tracking-tight text-gray-900;
+    }
+
+    .secundaryNonDarkColorText {
+        @apply text-indigo-600 tracking-tight;
+    }
+
+    .tertiaryNonDarkColorText {
+        @apply text-gray-500;
+    }
+
+    {{ /* black text colors */ }}
+
+    .primaryDarkColorText {
+        @apply tracking-tight text-white;
+    }
+
+    .secundaryDarkColorText {
+        @apply text-indigo-600 tracking-tight;
+    }
+
+    .tertiaryDarkColorText {
+        @apply text-gray-500;
+    }
+
+
+    {{ /* non black border colors */ }}
+    
+    .primaryNonDarkColorBorder {
+        @apply border-indigo-600;
+    }
+
+    {{ /* non black background colors */ }}
+    .primaryNonDarkColorBackground{
+        @apply bg-indigo-600;
+    }
+
+    {{ /* non black buttons colors */ }}
+    .primaryNonDarkColorButton {
+        @apply flex items-center text-center px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700
+    }
 }
