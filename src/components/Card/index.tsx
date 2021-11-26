@@ -35,7 +35,7 @@ export const Card = ({ card }: CardType) => {
         <div className="primaryNonDarkColorBackground text-center flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
           <span>{card.genre}</span>
         </div>
-        <h2 className="text-lg text-center font-bold sm:text-xl md:text-2xl">
+        <h2 className="text-lg text-center font-bold sm:text-xl md:text-2xl my-3 ">
           <a href="#_">{card.title}</a>
         </h2>
         <p className="text-sm text-gray-500">{card.description}</p>
@@ -45,7 +45,7 @@ export const Card = ({ card }: CardType) => {
         </p>
       </div>
       <a href="#_" className="w-full primaryNonDarkColorButton mt-5">
-        Detalhes
+        <p className="w-auto mx-auto"> Detalhes </p>
       </a>
     </div>
   );

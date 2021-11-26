@@ -7,13 +7,13 @@ export const TvPopular = () => {
   const [cards, setCards] = useState([]);
   
   const envolviment = {
-    SectionTitle : "Popular",
+    SectionTitle : "Mais assistidos",
     SectionSubTitle: "Tv / Séries"
   }
 
   useEffect(() => {
     const http = new httpController(); 
-    http.handle().get("/movie/popular").then(({ data }) => setCards(data.cards));
+    http.handle().get("/tv/popular").then(({ data }) => setCards(data.cards));
   }, []);
 
   return (
