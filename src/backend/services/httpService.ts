@@ -3,7 +3,7 @@ import axios from "axios";
 class httpService{
     execute(){
         return axios.create({
-            baseURL: '/api'
+            baseURL: `${process.env.REACT_APP_BASE_URL}/api`
         });
     }
 }

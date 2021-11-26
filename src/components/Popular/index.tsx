@@ -8,7 +8,8 @@ export const MoviePopular = () => {
   
   const envolviment = {
     SectionTitle : "Popular",
-    SectionSubTitle: "Filmes"
+    SectionSubTitle: "Filmes",
+    ButtonAllHref: "/populares"
   }
 
   useEffect(() => {

@@ -7,6 +7,8 @@ if (process.env.NODE_ENV === "development") {
   require('./miragejs/server').makeServer();
 }
 
+require('dotenv').config();
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

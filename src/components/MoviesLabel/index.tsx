@@ -1,11 +1,12 @@
 type EnvolvimentLabel = {
-    envolviment: {
-        SectionTitle: string,
-        SectionSubTitle: string
-    }
-}
+  envolviment: {
+    SectionTitle: string;
+    SectionSubTitle: string;
+    ButtonAllHref: string;
+  };
+};
 
-export const Label = ( {envolviment} : EnvolvimentLabel) => {
+export const Label = ({ envolviment }: EnvolvimentLabel) => {
   return (
     <div className="px-5 relative flex items-end font-bold">
       <h2 className="text-2xl">{envolviment.SectionTitle} </h2>
@@ -27,7 +28,9 @@ export const Label = ( {envolviment} : EnvolvimentLabel) => {
           />
         </svg>
       </a>
-     
+      <div className="ml-auto flex">
+        <a href={envolviment.ButtonAllHref} className="primaryNonDarkColorButton w-full sm:w-auto">Ver Todos</a>
+      </div>
     </div>
   );
 };

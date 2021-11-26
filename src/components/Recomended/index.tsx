@@ -8,7 +8,8 @@ export const Recomendeds = () => {
   
   const envolviment = {
     SectionTitle : "Recomendados",
-    SectionSubTitle: "Filmes"
+    SectionSubTitle: "Filmes",
+    ButtonAllHref: "/recomendados"
   }
 
   useEffect(() => {

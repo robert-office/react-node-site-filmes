@@ -8,7 +8,8 @@ export const TvPopular = () => {
   
   const envolviment = {
     SectionTitle : "Mais assistidos",
-    SectionSubTitle: "Tv / Séries"
+    SectionSubTitle: "Tv / Séries",
+    ButtonAllHref: "/tv"
   }
 
   useEffect(() => {
