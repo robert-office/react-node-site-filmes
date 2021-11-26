@@ -1,7 +1,7 @@
 import { Card } from "components/Card";
-import { http } from "services/api";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
+import { httpController } from "backend/controllers/htppController";
 
 export const MoviePopular = () => {
   const [cards, setCards] = useState([]);
@@ -12,7 +12,8 @@ export const MoviePopular = () => {
   }
 
   useEffect(() => {
-    http.get("/movie/popular").then(({ data }) => setCards(data.cards));
+    const http = new httpController(); 
+    http.handle().get("/movie/popular").then(({ data }) => setCards(data.cards));
   }, []);
 
   return (
