@@ -21,31 +21,40 @@ export const Card = ({ card }: CardType) => {
   return (
     <div
       onMouseEnter={handleBoxToggle}
-      className='flex flex-col justify-between primaryNonDarkColorBorder rounded-lg p-1'
+      className='relative flex flex-col justify-between primaryNonDarkColorBorder rounded-b'
       id={card.id}
       style={{ minWidth: "215px" }}
     >
-      <div>
+      <div className="bg-indigo-600 rounded-t-lg"
+      style={{minHeight: '420px'}}>
         <a href="#_" className="block">
           <img
-            className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
+            className="object-cover w-full mb-2 overflow-hidden rounded-t-lg shadow-sm"
+            style={{minHeight: '220px'}}
             src={card.img}
           />
         </a>
-        <div className="primaryNonDarkColorBackground text-center flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-          <span>{card.genre}</span>
-        </div>
-        <h2 className="text-lg text-center font-bold sm:text-xl md:text-2xl my-3 ">
-          <a href="#_">{card.title}</a>
+        <h2 className="absolute top-1 z-10 w-full bg-yellow-500 px-3 py-1.5 text-xs font-medium uppercase text-black">
+          <p className="w-full text-center">{card.genre}</p>
         </h2>
-        <p className="text-sm text-gray-500">{card.description}</p>
-        <p className="pt-2 text-xs font-medium">
-          · <span className="mx-1">{card.date}</span> ·{" "}
-          <span className="mx-1 text-gray-600">60 min</span>
+        <h2 className="text-lg text-center font-bold sm:text-xl md:text-2xl my-3 uppercase">
+          <a href="#_" className="text-white">{card.title} {card.title} {card.title}</a>
+        </h2>
+       
+        <p className="pt-2 text-xs font-medium text-center mt-1 text-white">
+          · <span className="mx-1 text-white">{card.date}</span> ·{" "}
+          <span className="mx-1 text-white">60 min</span>
+        </p>
+
+        <p className="pt-2 text-xs font-medium text-center mt-1">
+          <span className="mx-1 text-white">Rating</span>{" "}
         </p>
       </div>
-      <a href="#_" className="w-full primaryNonDarkColorButton mt-5">
+      <a href="#_" className="w-full primaryNonDarkColorButton mt-0.5">
         <p className="w-auto mx-auto"> Detalhes </p>
+      </a>
+      <a href="#_" className="w-full primaryNonDarkColorButton mt-0.5">
+        <p className="w-auto mx-auto"> Trailler </p>
       </a>
     </div>
   );
