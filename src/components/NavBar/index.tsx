@@ -1,7 +1,3 @@
-import TextLogo from "assets/images/Logos/acompanyOnlyText.png";
-import { PerfilSvg } from "assets/images/svgs/PerfilSvg";
-import { MenuBarSvg } from "assets/images/svgs/MenuBarSvg";
-import Logo from "assets/images/Logos/yourlogo.png";
 
 export const OtherNavBar = () => {
   return (
@@ -26,21 +22,21 @@ export const OtherNavBar = () => {
                 Home
               </a>
               <a
-                href={process.env.REACT_APP_BASE_URL+"/recomendados"}
+                href={process.env.REACT_APP_BASE_URL+"/todos/recomendados"}
                 className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
               >
                 Recomendados
               </a>
 
               <a
-                href={process.env.REACT_APP_BASE_URL+"/populares"}
+                href={process.env.REACT_APP_BASE_URL+"/todos/populares"}
                 className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
               >
                 Filmes
               </a>
               
               <a
-                href={process.env.REACT_APP_BASE_URL+"/tv"}
+                href={process.env.REACT_APP_BASE_URL+"/todos/tv"}
                 className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
               >
                 T.V

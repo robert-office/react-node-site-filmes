@@ -32,7 +32,7 @@ export const Label = ({ envolviment }: EnvolvimentLabel) => {
       </div>
       <div className="md:ml-auto flex w-auto">
         <a
-          href={envolviment.ButtonAllHref}
+          href={"/todos"+envolviment.ButtonAllHref}
           className="primaryNonDarkColorButton mt-2 md:mt-0 sm:w-auto"
         >
           Ver Todos
