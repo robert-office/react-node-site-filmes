@@ -1,50 +1,67 @@
+import svg from "../../assets/images/svgs/assistindoNoite.svg";
+
 export const LoginForm = () => {
   return (
-    <section className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="max-w-md w-full bg-white rounded p-6 space-y-4">
-        <div className="mb-4">
-          <p className="text-gray-600">Logar-se</p>
-          <h2 className="text-xl font-bold">Entre em nossa comunidade</h2>
-        </div>
-        <div>
-          <input
-            className="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
-            type="text"
-            placeholder="Email"
-          />
-        </div>
-        <div>
-          <input
-            className="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
-            type="text"
-            placeholder="Senha"
-          />
-        </div>
-        <div>
-          <button className="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded text-sm font-bold text-gray-50 transition duration-200">
-            Logar-se
-          </button>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex flex-row items-center">
-            <input
-              type="checkbox"
-              className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
-            />
-            <label
-              htmlFor="comments"
-              className="ml-2 text-sm font-normal text-gray-600"
-            >
-              Lembre-me
-            </label>
+    <>
+      {/* Section 1 */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col lg:flex-row">
+            <div className="relative w-full bg-cover lg:w-6/12 xl:w-7/12 bg-gradient-to-r from-white via-white to-gray-100">
+              <div className="relative flex flex-col items-center justify-center w-full h-full px-10 my-10 lg:px-16 lg:my-0">
+                <div className="flex flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
+                  <img src={svg} alt="svg" />
+                </div>
+              </div>
+            </div>
+            <div className="w-full bg-white lg:w-6/12 xl:w-5/12">
+              <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
+                <h4 className="w-full text-3xl font-bold my-2">Login</h4>
+                <p className="text-lg text-gray-500">
+                  ou, então você pode{" "}
+                  <a href={process.env.REACT_APP_BASE_URL+"/cadastro"} className="text-blue-600 underline">
+                    cadastrar-se
+                  </a>
+                  , se ainda não possui uma conta
+                </p>
+                <div className="relative w-full mt-10 space-y-8">
+                  
+                  <div className="relative">
+                    <label className="font-medium text-gray-900">Email</label>
+                    <input
+                      type="text"
+                      className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                      placeholder="Coloque Seu Endereço De Email"
+                    />
+                  </div>
+                  <div className="relative">
+                    <label className="font-medium text-gray-900">Senha</label>
+                    <input
+                      type="password"
+                      className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                      placeholder="Coloque Sua Senha"
+                    />
+                  </div>
+                  <div className="relative">
+                    <a
+                      href="#_"
+                      className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-indigo-600 rounded-lg hover:bg-blue-700 ease"
+                    >
+                      Login
+                    </a>
+                    <a
+                      href="#_"
+                      className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
+                    >
+                      Login Através do Google
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <a className="text-sm text-blue-600 hover:underline" href="_#">
-              Esqueceste a senha?
-            </a>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };

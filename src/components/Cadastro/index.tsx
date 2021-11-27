@@ -18,10 +18,10 @@ export const CadastroForm = () => {
             </div>
             <div className="w-full bg-white lg:w-6/12 xl:w-5/12">
               <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
-                <h4 className="w-full text-3xl font-bold">Cadastre-se</h4>
+                <h4 className="w-full text-3xl font-bold my-2">Cadastre-se</h4>
                 <p className="text-lg text-gray-500">
                   ou, então você pode{" "}
-                  <a href="#_" className="text-blue-600 underline">
+                  <a href={process.env.REACT_APP_BASE_URL+"/login"} className="text-blue-600 underline">
                     logar-se
                   </a>
                   , se já possuir uma conta
