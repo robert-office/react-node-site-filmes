@@ -20,7 +20,7 @@ export const Card = ({ card }: CardType) => {
       style={{ minWidth: "215px" }}
     >
       <div className="relative rounded-t-lg">
-        <a href={process.env.REACT_APP_BASE_URL+"/"+card.title} className="block">
+        <a href={process.env.REACT_APP_BASE_URL+"/detalhes/"+card.title} className="block">
           <img
             className="object-cover w-full mb-2 overflow-hidden rounded-t-lg shadow-sm"
             style={{minHeight: '320px'}}
@@ -33,7 +33,7 @@ export const Card = ({ card }: CardType) => {
         </h2>
         <h2 className="absolute w-full bg-indigo-600 bottom-2 text-lg text-center font-bold sm:text-xl md:text-2xl uppercase"
         style={{opacity: '0.8'}}>
-          <a href={process.env.REACT_APP_BASE_URL+"/"+card.title} className="text-white">{card.title} {card.title} {card.title}</a>
+          <a href={process.env.REACT_APP_BASE_URL+"/detalhes/"+card.title} className="text-white">{card.title} {card.title} {card.title}</a>
         </h2>
       </div>
     </div>
