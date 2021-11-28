@@ -1,12 +1,15 @@
 import { Card } from "components/Card";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
-import { httpController } from "backend/controllers/htppController";
 import { SwiperSlide } from "swiper/react";
 import { LocalCardsSwipper } from "components/LocalCardsSwipper";
+import { getRecomendedMoviesController } from "backend/controllers/getRecomendedMoviesController";
+import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export const Recomendeds = () => {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState<ApiExternalResponse>({
+    results : []
+  });
 
   const envolviment = {
     SectionTitle: "Recomendados",
@@ -15,11 +18,10 @@ export const Recomendeds = () => {
   };
 
   useEffect(() => {
-    const http = new httpController();
-    http
-      .handle()
-      .get("/movie/popular")
-      .then(({ data }) => setCards(data.cards));
+    const controller = new getRecomendedMoviesController();
+    controller.handle().then(( response ) => {
+      setCards( response.data );
+    });
   }, []);
 
   return (
@@ -32,7 +34,7 @@ export const Recomendeds = () => {
 
           {/* Local Cards */}
             <LocalCardsSwipper>
-              {cards.map((card) => {
+            {cards.results.map((card) => {
                 return (
                   <SwiperSlide>
                     <Card card={card} />

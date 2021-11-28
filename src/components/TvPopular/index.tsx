@@ -1,23 +1,28 @@
-import { Card } from "components/Card";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
-import { httpController } from "backend/controllers/htppController";
 import { LocalCardsSwipper } from "components/LocalCardsSwipper";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
+import { getPopularTvController } from "backend/controllers/getPopularTvController";
+import { Card } from "components/Card";
+import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export const TvPopular = () => {
-  const [cards, setCards] = useState([]);
-  
+  const [cards, setCards] = useState<ApiExternalResponse>({
+    results : []
+  });
+
   const envolviment = {
-    SectionTitle : "Mais assistidos",
+    SectionTitle: "Mais assistidos",
     SectionSubTitle: "Tv / Séries",
-    ButtonAllHref: "/tv"
-  }
+    ButtonAllHref: "/tv",
+  };
 
   useEffect(() => {
-    const http = new httpController(); 
-    http.handle().get("/tv/popular").then(({ data }) => setCards(data.cards));
+    const controller = new getPopularTvController();
+    controller.handle().then(( response ) => {
+      setCards( response.data );
+    });
   }, []);
 
   return (
@@ -29,15 +34,15 @@ export const TvPopular = () => {
           <Label envolviment={envolviment} />
 
           {/* Local Cards */}
-            <LocalCardsSwipper>
-              {cards.map((card) => {
-                return (
-                  <SwiperSlide>
-                    <Card card={card} />
-                  </SwiperSlide>
-                );
-              })}
-            </LocalCardsSwipper>
+          <LocalCardsSwipper>
+            {cards.results.map((card) => {
+              return (
+                <SwiperSlide>
+                  <Card card={card} />
+                </SwiperSlide>
+              );
+            })}
+          </LocalCardsSwipper>
         </div>
       </section>
     </>

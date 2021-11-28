@@ -1,9 +1,10 @@
 import axios from "axios";
+import { IApiTypes } from "backend/ApiTypesObjects/IApiTypes";
 
 class httpService{
-    execute(){
+    execute( typeAPI : IApiTypes ){
         return axios.create({
-            baseURL: `${process.env.REACT_APP_BASE_API_URL}/api`
+            baseURL: `${typeAPI.GetApiUrl()}`
         });
     }
 }

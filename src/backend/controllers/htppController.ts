@@ -1,10 +1,11 @@
+import { IApiTypes } from "backend/ApiTypesObjects/IApiTypes";
 import { httpService } from "../services/httpService";
 
 class httpController {
     
-    handle(){
+    handle( ApiObj : IApiTypes ){
         const service = new httpService();
-        return service.execute();
+        return service.execute( ApiObj );
     }
 }
 
