@@ -1,8 +1,9 @@
 import Cadastro from "pages/cadastro";
+import { Detalhes } from "pages/detalhes";
 import Home from "pages/Home";
 import Login from "pages/login";
 import { My404 } from "pages/My40/My404";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {  BrowserRouter, Route, Switch } from "react-router-dom";
 
 function Routes() {
     return (
@@ -18,6 +19,14 @@ function Routes() {
                 <Login />
             </Route>
 
+            <Route path="/detalhes/:search" exact>
+                <Detalhes />
+            </Route>
+                
+            
+            <Route path="/todos/:type" exact>
+                <Login />
+            </Route>
 
             {/* ROTA PADRÃO 404 */}
             <Route path='*' exact={true} component={My404} />

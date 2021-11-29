@@ -10,3 +10,7 @@ export const formatLocalDate = (date: string, pattern: string) => {
     const dtDateOnly = new Date(dt.valueOf() + dt.getTimezoneOffset() * 60 * 1000);
     return format(dtDateOnly, pattern);
 }
+
+export const formatStringWithReplaceSlash = (str : string) => {
+    return str.replace(/_/g, " ");
+}
