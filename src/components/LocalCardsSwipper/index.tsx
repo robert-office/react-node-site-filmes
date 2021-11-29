@@ -47,7 +47,7 @@ export const LocalCardsSwipper = class Grid extends React.Component {
         </div>
 
         <Swiper
-          slidesPerView={1}
+          slidesPerView={2}
           spaceBetween={30}
           pagination={{
             clickable: true,
@@ -58,27 +58,27 @@ export const LocalCardsSwipper = class Grid extends React.Component {
           }}
           breakpoints={{
             490: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-
-            750: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
 
-            980: {
+            750: {
               slidesPerView: 3,
               spaceBetween: 20,
             },
 
-            1100: {
+            980: {
               slidesPerView: 4,
               spaceBetween: 20,
             },
 
-            1600: {
+            1100: {
               slidesPerView: 5,
+              spaceBetween: 20,
+            },
+
+            1600: {
+              slidesPerView: 6,
               spaceBetween: 20,
             },
           }}
