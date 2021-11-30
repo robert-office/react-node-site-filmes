@@ -2,7 +2,7 @@ import { Card } from "components/Card";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
 import { SwiperSlide } from "swiper/react";
-import { LocalCardsSwipper } from "components/LocalCardsSwipper";
+import { LocalSwipper } from "components/LocalSwipper";
 import { getPopularMoviesController } from "backend/controllers/getPopularMoviesController";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
@@ -33,7 +33,7 @@ export const MoviePopular = () => {
           <Label envolviment={envolviment} />
 
           {/* Local Cards */}
-            <LocalCardsSwipper>
+            <LocalSwipper>
             {cards.results.map((card) => {
                 return (
                   <SwiperSlide>
@@ -41,7 +41,7 @@ export const MoviePopular = () => {
                   </SwiperSlide>
                 );
               })}
-            </LocalCardsSwipper>
+            </LocalSwipper>
         </div>
       </section>
     </>

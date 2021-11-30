@@ -1,24 +1,98 @@
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
+import Rating from "@mui/material/Rating";
+import { Chip, Divider, Stack } from "@mui/material";
+import { ExternalGenre, Genre } from "backend/types/ApiExternalGenre";
+import { getGenresController } from "backend/controllers/getGenresController";
+import { useEffect, useState } from "react";
 
 type Props = {
   alldata: ApiExternalResults;
 };
 
-export const HeaderBackdrop = ({ alldata }: Props) => (
-  <>
-    <section className="w-full px-8 text-gray-700 bg-white">
-      <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
-          <div className="w-full">
+export const HeaderBackdrop = ({ alldata }: Props) => {
+  const [genresList, setGenresList] = useState<Genre[]>([]);
+  const [genres, setGenres] = useState<ExternalGenre>();
 
+  useEffect(() => {
+    const controller = new getGenresController();
+    controller.handle(alldata.media_type).then((data) => {
+      setGenres(data.data);
 
-            
+      data.data.genres.map((genreAtual) => {
+        alldata.genre_ids?.map((genre) => {
+          if (genre === genreAtual.id) {
+            setGenresList((genresList) => [...genresList, genreAtual]);
+          }
+        });
+      });
+      console.log(genresList);
+    });
+  }, [alldata.genre_ids]);
 
+  console.log(alldata);
 
-
-
-
-          </div>
+  return (
+    <>
+      {/*
+      ! ------------------------------------------------------------
+      ! movie/tv banner and avatar
+      ! ------------------------------------------------------------
+      */}
+      <div className="relative w-full">
+        <img
+          className="h-48 w-full rounded-t-lg shadow-md object-cover object-center"
+          src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
+          alt="imgPoster"
+        />
+        <div className="absolute sm:-mt-32 -mt-20 w-full z-10">
+          <img
+            className="sm:h-52 h-40 sm:w-40 w-32 rounded-lg shadow-md object-cover object-center mx-auto sm:mr-0 sm:ml-5"
+            src={`https://image.tmdb.org/t/p/w300${alldata.poster_path}`}
+            alt="imgPoster"
+          />
+        </div>
       </div>
-    </section>
-  </>
-);
+      {/*
+      ! ------------------------------------------------------------
+      ! movie/tv general information
+      ! ------------------------------------------------------------
+      */}
+      <div className="relative bg-bgColor border-r border-l border-primary p-5 pt-24 flex flex-col">
+        {/* title name */}
+        <div className="w-full sm:block flex justify-center">
+          <p className="text-xs font-thin p-1">
+            votado por {alldata.vote_count} pessoas
+          </p>
+
+          <Rating
+            name="read-only"
+            value={Math.round(alldata.vote_average) / 2}
+            max={5}
+            readOnly
+          />
+        </div>
+
+        {/* title name */}
+        <div className="w-full sm:block flex justify-center">
+          <h2 className="font-extrabold leading-5 tracking-tight text-lg">
+            {" "}
+            {alldata.title ? alldata.title : alldata.name}{" "}
+          </h2>
+        </div>
+
+        {/* genre */}
+        <div className="w-full sm:block flex justify-center mt-2">
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={1}
+            divider={<Divider orientation="vertical" flexItem />}
+          >
+            {genresList.map((genre) => (
+              <Chip label={genre.name} color="success" variant="outlined" />
+            ))}
+          </Stack>
+        </div>
+      </div>
+    </>
+  );
+};

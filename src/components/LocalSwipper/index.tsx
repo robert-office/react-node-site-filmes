@@ -17,7 +17,7 @@ import arrowL from "../../assets/images/svgs/ArrowL.svg";
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
 
-export const LocalCardsSwipper = class Grid extends React.Component {
+export const LocalSwipper = class Grid extends React.Component {
   render() {
     const next =
       "swiper-button-next-" + String(Math.floor(Math.random() * 100));
@@ -39,7 +39,7 @@ export const LocalCardsSwipper = class Grid extends React.Component {
           <button
             className={
               next +
-              " animate-pulse relative sm:mr-10  h-10 w-10 rounded-full bg-indigo-600 text-center text-white font-extrabold"
+              " animate-pulse relative sm:mr-10  h-12 w-12 rounded-full bg-indigo-600 text-center text-white font-extrabold"
             }
           >
             <img src={arrowR} alt="next" />

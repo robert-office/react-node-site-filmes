@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
-import { LocalCardsSwipper } from "components/LocalCardsSwipper";
+import { LocalSwipper } from "components/LocalSwipper";
 // Import Swiper React components
 import { SwiperSlide } from "swiper/react";
 import { getPopularTvController } from "backend/controllers/getPopularTvController";
@@ -34,7 +34,7 @@ export const TvPopular = () => {
           <Label envolviment={envolviment} />
 
           {/* Local Cards */}
-          <LocalCardsSwipper>
+          <LocalSwipper>
             {cards.results.map((card) => {
               return (
                 <SwiperSlide>
@@ -42,7 +42,7 @@ export const TvPopular = () => {
                 </SwiperSlide>
               );
             })}
-          </LocalCardsSwipper>
+          </LocalSwipper>
         </div>
       </section>
     </>

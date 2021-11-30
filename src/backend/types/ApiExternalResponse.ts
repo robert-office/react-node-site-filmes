@@ -1,3 +1,5 @@
+import { Genre } from "./ApiExternalGenre";
+
 export type ApiExternalResponse = {
   page?: number;
   results: ApiExternalResults[];
@@ -8,7 +10,7 @@ export type ApiExternalResponse = {
 export type ApiExternalResults = {
   backdrop_path?: string;
   first_air_date?: string;
-  id?: number;
+  id: number;
   name?: string;
   title?: string;
   original_title? : string;
@@ -18,6 +20,8 @@ export type ApiExternalResults = {
   overview?: string;
   popularity?: number;
   poster_path?: string;
-  vote_average?: number;
+  vote_average: number;
   vote_count?: number;
+  genre_ids?: Genre[];
+  media_type: string;
 };
