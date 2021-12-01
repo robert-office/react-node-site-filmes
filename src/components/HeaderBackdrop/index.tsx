@@ -1,6 +1,6 @@
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import Rating from "@mui/material/Rating";
-import { Chip, Divider, Stack } from "@mui/material";
+import { Chip, Divider, Skeleton, Stack } from "@mui/material";
 import { ExternalGenre, Genre } from "backend/types/ApiExternalGenre";
 import { getGenresController } from "backend/controllers/getGenresController";
 import { useEffect, useState } from "react";
@@ -36,17 +36,38 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
       ! ------------------------------------------------------------
       */}
       <div className="relative w-full">
-        <img
-          className="h-48 w-full rounded-t-lg shadow-md object-cover object-center"
-          src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
-          alt="imgPoster"
-        />
-        <div className="absolute sm:-mt-32 -mt-20 w-full z-10">
+        {!alldata.backdrop_path ? (
+          <>
+            <Skeleton
+              variant="rectangular"
+              height={192}
+              className="w-full rounded-t-lg shadow-md object-cover object-center"
+            />
+          </>
+        ) : (
           <img
-            className="sm:h-52 h-40 sm:w-40 w-32 rounded-lg shadow-md object-cover object-center mx-auto sm:mr-0 sm:ml-5"
-            src={`https://image.tmdb.org/t/p/w300${alldata.poster_path}`}
+            className="h-48 w-full rounded-t-lg shadow-md object-cover object-center"
+            src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
             alt="imgPoster"
           />
+        )}
+
+        <div className="absolute sm:-mt-32 -mt-20 w-full z-10">
+          {!alldata.backdrop_path ? (
+            <>
+              <Skeleton
+                variant="rectangular"
+                height={208}
+                className="sm:h-52 h-40 sm:w-40 w-32 rounded-lg shadow-md object-cover object-center mx-auto sm:mr-0 sm:ml-5"
+              />
+            </>
+          ) : (
+            <img
+              className="sm:h-52 h-40 sm:w-40 w-32 rounded-lg shadow-md object-cover object-center mx-auto sm:mr-0 sm:ml-5"
+              src={`https://image.tmdb.org/t/p/w300${alldata.poster_path}`}
+              alt="imgPoster"
+            />
+          )}
         </div>
       </div>
       {/*

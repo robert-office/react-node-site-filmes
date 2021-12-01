@@ -1,11 +1,14 @@
-.swiper-pagination-bullet-active {
+.swiper-pagination-bullets > span {
     background-color: white !important;
 }
-.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-    background-color: rgba(79, 70, 229);
-    bottom: -30px !important;
-    border-radius: 10px;
+
+.swiper-pagination-bullets > span{
+    background-color: black !important;
 }
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: -30px !important;
+}
+
 
 .swiper-container {
     overflow-y: visible !important;

@@ -4,6 +4,7 @@ import { BodyDetalhes } from "components/bodyDetalhes";
 import Footer from "components/Footer";
 import { HeaderBackdrop } from "components/HeaderBackdrop";
 import { OtherNavBar } from "components/NavBar";
+import { ReviewsLocal } from "components/ReviewLocal";
 import { TraillersLocal } from "components/TraillersLocal";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,7 +34,7 @@ export const Detalhes = () => {
       <BodyDetalhes>
         <HeaderBackdrop alldata={Infos} />
         <TraillersLocal alldata={Infos} />
-        
+        <ReviewsLocal/>
       </BodyDetalhes>
       <Footer />
     </>

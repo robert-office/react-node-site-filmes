@@ -8,6 +8,7 @@ type Props = {
 export const Trailler = ({ traillerData }: Props) => {
   return (
     <iframe
+      width={"100%"}
       className="w-full h-96"
       src={`https://www.youtube.com/embed/${traillerData.key}?`}
       allowFullScreen
