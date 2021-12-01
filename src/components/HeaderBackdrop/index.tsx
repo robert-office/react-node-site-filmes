@@ -25,11 +25,8 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
           }
         });
       });
-      console.log(genresList);
     });
   }, [alldata.genre_ids]);
-
-  console.log(alldata);
 
   return (
     <>

@@ -25,7 +25,7 @@ export const Detalhes = () => {
       /// set the data
       setInfos(justFirst);
     });
-  }, []);
+  }, [search]);
 
   return (
     <>

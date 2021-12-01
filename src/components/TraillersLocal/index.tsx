@@ -25,16 +25,12 @@ export const TraillersLocal = ({ alldata }: Props) => {
   return (
     <>
       {/* Section */}
-      
-      <section className={`bg-white ${traillers.results.length > 0 ? "block" : "hidden"} `}>
+      <section className={`bg-white ${traillers.results.length > 1 ? "block" : "hidden"} `}>
         <div className="relative bg-bgColor border-r border-l border-primary flex flex-col">
-          
           <h2 className="pl-5 font-extrabold leading-5 tracking-tight text-sm">Traillers</h2>
-
-
           {/* Local trailler swipper */}
             <LocalSwipperTrailler>
-            {traillers.results.slice(0, 3).map((traillerData) => {
+            {traillers.results.slice(0, 4).map((traillerData) => {
                 return (
                   <SwiperSlide>
                     <Trailler traillerData={traillerData} />

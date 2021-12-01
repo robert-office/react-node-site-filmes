@@ -1,18 +1,13 @@
 import React from "react";
-// Import Swiper React components
 import { Swiper } from "swiper/react";
-// modules styles
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
-// swiper bundle styles
 import "swiper/swiper-bundle.min.css";
-// swiper core styles
 import "swiper/swiper.min.css";
-// import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from "swiper";
-
 import arrowR from "../../assets/images/svgs/ArrowR.svg";
 import arrowL from "../../assets/images/svgs/ArrowL.svg";
+import "./styles.css";
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
@@ -48,7 +43,7 @@ export const LocalSwipperTrailler = class Grid extends React.Component {
             
         <Swiper
           slidesPerView={1}
-          spaceBetween={30}
+          spaceBetween={0}
           pagination={{
             clickable: true,
           }}
