@@ -34,7 +34,7 @@ export const Detalhes = () => {
       <BodyDetalhes>
         <HeaderBackdrop alldata={Infos} />
         <TraillersLocal alldata={Infos} />
-        <ReviewsLocal/>
+        <ReviewsLocal alldata={Infos}/>
       </BodyDetalhes>
       <Footer />
     </>
