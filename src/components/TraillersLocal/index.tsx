@@ -17,7 +17,7 @@ export const TraillersLocal = ({ alldata }: Props) => {
 
   useEffect(() => {
     const controller = new getPopularTraillersController();
-    controller.handle(alldata.id).then(( response ) => {
+    controller.handle(alldata.id, alldata.media_type).then(( response ) => {
       setTraillers( response.data );
     });
   }, [alldata]);
@@ -27,7 +27,7 @@ export const TraillersLocal = ({ alldata }: Props) => {
       {/* Section */}
       <section className={`bg-bgColor ${traillers.results.length > 1 ? "block" : "hidden"}`}>
         <div className="relative bg-bgColor flex flex-col mt-10 pb-3">
-          <h2 className="pl-5 font-extrabold leading-5 tracking-tight text-sm">Traillers</h2>
+          <h2 className="font-extrabold leading-5 tracking-tight text-sm mb-5 text-center sm:text-left pl-5">Traillers</h2>
           {/* Local trailler swipper */}
             <LocalSwipperTrailler>
             {traillers.results.slice(0, 4).map((traillerData) => {

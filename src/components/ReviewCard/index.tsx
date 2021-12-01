@@ -1,38 +1,26 @@
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-
+import UserFoto from "../../assets/images/examplePerfil.jpg"
 
 export default function ReviewCard() {
-
   return (
-    <Card sx={{ width: '100%', maxHeight: '300px', overflowY: 'scroll' }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+    <figure className="relative bg-gray-100 rounded-xl p-8" style={{minWidth: '300px', maxWidth: '300px'}}>
+      <img
+        className="w-32 h-32 rounded-full mx-auto object-center object-cover"
+        src={UserFoto}
+        alt="imageUser"
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
-          dfdsfdsfdsd
-          dddfds
-          dfdsfd
-          dfdsfdsfdsd
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa excepturi ipsa reiciendis eos necessitatibus! Fugiat nulla veritatis ad sint hic est, maiores rerum facilis placeat deserunt, quod saepe ullam repudiandae.
-        </Typography>
-      </CardContent>
-    </Card>
+      <div className="pt-6 text-center space-y-4">
+        <blockquote>
+          <p className="text-lg font-semibold">
+            “Tailwind CSS is the only framework that I've seen scale on large
+            teams. It’s easy to customize, adapts to any design, and the build
+            size is tiny.”
+          </p>
+        </blockquote>
+        <figcaption className="font-medium">
+          <div className="text-indigo-600">Sarah Dayan</div>
+          <div className="text-gray-500">Staff Engineer, Algolia</div>
+        </figcaption>
+      </div>
+    </figure>
   );
 }
