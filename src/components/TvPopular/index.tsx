@@ -9,7 +9,7 @@ import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export const TvPopular = () => {
   const [cards, setCards] = useState<ApiExternalResponse>({
-    results : []
+    results: [],
   });
 
   const envolviment = {
@@ -20,8 +20,8 @@ export const TvPopular = () => {
 
   useEffect(() => {
     const controller = new getPopularTvController();
-    controller.handle().then(( response ) => {
-      setCards( response.data );
+    controller.handle().then((response) => {
+      setCards(response.data);
     });
   }, []);
 
@@ -37,7 +37,9 @@ export const TvPopular = () => {
           <LocalSwipper>
             {cards.results.map((card) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide
+                  key={`tv_popular_${String(Math.random() * 1000)}`}
+                >
                   <Card card={card} />
                 </SwiperSlide>
               );

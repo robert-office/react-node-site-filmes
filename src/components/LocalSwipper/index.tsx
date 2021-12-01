@@ -26,7 +26,7 @@ export const LocalSwipper = class Grid extends React.Component {
 
     return (
       <div className="relative flex pb-10 sm:px-5 gap-x-8 gap-y-16">
-        <div className="absolute z-20 w-full h-1 flex justify-between top-10">
+        <div className="absolute z-20 w-full h-1 flex justify-between top-28">
           <button
             className={
               prev +

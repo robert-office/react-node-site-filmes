@@ -36,7 +36,7 @@ export const Recomendeds = () => {
             <LocalSwipper>
             {cards.results.map((card) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={`recomend_${String(Math.random() * 1000)}`}>
                     <Card card={card} />
                   </SwiperSlide>
                 );

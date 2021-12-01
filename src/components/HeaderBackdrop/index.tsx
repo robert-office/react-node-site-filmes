@@ -54,7 +54,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
       ! movie/tv general information
       ! ------------------------------------------------------------
       */}
-      <div className="relative bg-bgColor border-r border-l border-primary p-5 pt-24 flex flex-col">
+      <div className="relative bg-bgColor p-5 pt-24 flex flex-col">
         {/* title name */}
         <div className="w-full sm:block flex justify-center">
           <p className="text-xs font-thin p-1">
@@ -85,9 +85,26 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
             divider={<Divider orientation="vertical" flexItem />}
           >
             {genresList.map((genre) => (
-              <Chip label={genre.name} color="success" variant="outlined" />
+              <Chip
+                label={genre.name}
+                color="success"
+                variant="outlined"
+                key={`chip_${String(Math.random() * 1000)}`}
+              />
             ))}
           </Stack>
+        </div>
+
+        {/* descrição name */}
+        <div className="w-full flex flex-col justify-center sm:justify-start mt-10">
+          <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left">
+            Descrição
+          </h2>
+          <h3 className="font-medium leading-5 tracking-tight text-base mt-3">
+            {alldata.overview
+              ? alldata.overview
+              : "Não há nenhuma descrição no momento..."}
+          </h3>
         </div>
       </div>
     </>
