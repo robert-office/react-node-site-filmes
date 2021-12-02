@@ -7,16 +7,16 @@ export const LoginForm = () => {
       <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col lg:flex-row">
-            <div className="relative w-full bg-cover lg:w-6/12 xl:w-7/12 bg-gradient-to-r from-white via-white to-gray-100">
+            <div className="relative w-full bg-cover lg:w-6/12 xl:w-7/12 bg-gradient-to-r">
               <div className="relative flex flex-col items-center justify-center w-full h-full px-10 my-10 lg:px-16 lg:my-0">
-                <div className="flex flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
+                <div className="w-1/2 lg:w-full flex flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
                   <img src={svg} alt="svg" />
                 </div>
               </div>
             </div>
             <div className="w-full bg-white lg:w-6/12 xl:w-5/12">
               <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
-                <h4 className="w-full text-3xl font-bold my-2">Login</h4>
+                <h4 className="w-full text-3xl font-bold my-2 lg:text-left text-center">Login</h4>
                 <p className="text-lg text-gray-500">
                   ou, então você pode{" "}
                   <a href={process.env.REACT_APP_BASE_URL+"/cadastro"} className="text-blue-600 underline">

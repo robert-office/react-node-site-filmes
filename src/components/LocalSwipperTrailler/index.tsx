@@ -60,7 +60,7 @@ export const LocalSwipperTrailler = class Grid extends React.Component {
           observer={true}
           observeParents={true}
           parallax={true}
-          className="mySwiper"
+          className="mySwiperTrailler"
         >
           {this.props.children}
         </Swiper>

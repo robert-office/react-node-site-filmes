@@ -41,15 +41,10 @@ export const Detalhes = () => {
         <OtherNavBar />
         <BodyDetalhes>
           <HeaderBackdrop alldata={Infos} />
-          <Divider />
           <TraillersLocal alldata={Infos} />
-          <Divider />
           <Similar alldata={Infos} />
-          <Divider />
           <RecomendedToThis alldata={Infos} />
-          <Divider />
           <ReviewsLocal alldata={Infos} />
-          <Divider />
         </BodyDetalhes>
         <Footer />
       </>
