@@ -23,12 +23,12 @@ export const ReviewsLocal = ({ alldata }: Props) => {
   return (
     <>
       {/* Section */}
-      <section className="bg-bgColor">
+      <section className="bg-bgColor py-4 overflow-x-scroll">
         <div className={`relative bg-bgColor flex flex-col mt-10 px-5 ${reviews.results.length > 1 ? "flex" : "hidden"}`}>
           <h2 className="font-extrabold leading-5 tracking-tight text-sm mb-5 text-center sm:text-left">
             Reviews
           </h2>
-          <div className="overflow-x-scroll flex flex-row gap-2">
+          <div className="flex flex-row gap-2 p2">
             {reviews.results.map((review) => {
               return <ReviewCard reviewData={review} key={`review_${review.id}`} />;
             })}

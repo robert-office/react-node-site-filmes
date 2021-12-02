@@ -14,50 +14,40 @@ export default function ReviewCard({ reviewData }: reviewCard) {
       : true;
 
   return (
-    <figure
-      className="relative bg-gray-100 rounded-xl p-8 overflow-y-scroll overflow-x-hidden"
-      style={{ minWidth: "300px", maxWidth: "300px", maxHeight: "400px" }}
-    >
-      {Havehttps ? (
-        <Skeleton
-          variant="circular"
-          width={128}
-          height={128}
-          className="w-32 h-32 rounded-full mx-auto object-center object-cover"
-        />
-      ) : (
-        <img
-          className="w-32 h-32 rounded-full mx-auto object-center object-cover"
-          src={`https://image.tmdb.org/t/p/w300${reviewData.author_details.avatar_path}`}
-          alt="imageUser"
-        />
-      )}
+    <>
+      <figure className="bg-gray-100 rounded-xl p-4 border-l-8 border-indigo-600">
+        {Havehttps ? (
+          <Skeleton
+            variant="circular"
+            width={128}
+            height={128}
+            className="w-32 h-32 rounded-full mx-auto"
+          />
+        ) : (
+          <img
+            className="w-32 h-32 rounded-full mx-auto"
+            src={`https://image.tmdb.org/t/p/w300${reviewData.author_details.avatar_path}`}
+            alt="foto perfil"
+            width={384}
+            height={512}
+          />
+        )}
 
-      <div className="relative w-full h-auto my-4 flex flex-row justify-center">
-        <Rating
-          name="read-only"
-          value={Math.round(reviewData.author_details.rating) / 2}
-          max={5}
-          readOnly
-        />
-      </div>
-
-      <Divider />
-
-      <figcaption className="font-medium py-2">
-        <div className="text-indigo-600 text-center">{reviewData.author}</div>
-        <div className="text-gray-500 text-center">
-          {reviewData.author}, {reviewData.created_at}
+        <div className="pt-2 text-center space-y-4">
+          <figcaption className="font-medium">
+            <div className="relative w-full h-auto my-4 flex flex-row justify-center">
+              <Rating
+                name="read-only"
+                value={Math.round(reviewData.author_details.rating) / 2}
+                max={5}
+                readOnly
+              />
+            </div>
+            <div className="text-cyan-600">{reviewData.author}</div>
+            <div className="text-gray-500">{reviewData.created_at}</div>
+          </figcaption>
         </div>
-      </figcaption>
-
-      <Divider />
-
-      <div className="pt-6 text-center space-y-4 mx-auto">
-        <blockquote>
-          <p className="text-xs font-semibold">{reviewData.content}</p>
-        </blockquote>
-      </div>
-    </figure>
+      </figure>
+    </>
   );
 }

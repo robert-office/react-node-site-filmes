@@ -9,6 +9,7 @@ import { RecomendedToThis } from "components/RecomendedToThis";
 import { ReviewsLocal } from "components/ReviewLocal";
 import { Similar } from "components/Similar";
 import { TraillersLocal } from "components/TraillersLocal";
+import { My404 } from "pages/My40/My404";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -24,28 +25,34 @@ export const Detalhes = () => {
   useEffect(() => {
     const controller = new getDetailsController();
     controller.handle(search).then((data) => {
-      /// pega somente o primeiro resultado
-      const justFirst = data.data.results[0];
-      /// set the data
-      setInfos(justFirst);
+      if (data.data.results.length < 1) {
+      } else {
+        /// pega somente o primeiro resultado
+        const justFirst = data.data.results[0];
+        /// set the data
+        setInfos(justFirst);
+      }
     });
   }, [search]);
 
   return (
     <>
-      <OtherNavBar />
-      <BodyDetalhes>
-        <HeaderBackdrop alldata={Infos} />
-        <Divider/>
-        <TraillersLocal alldata={Infos} />
-        <Divider/>
-        <ReviewsLocal   alldata={Infos}/>
-        <Divider/>
-        <Similar        alldata={Infos}/>
-        <Divider/>
-        <RecomendedToThis alldata={Infos}/>
-      </BodyDetalhes>
-      <Footer />
+      <>
+        <OtherNavBar />
+        <BodyDetalhes>
+          <HeaderBackdrop alldata={Infos} />
+          <Divider />
+          <TraillersLocal alldata={Infos} />
+          <Divider />
+          <Similar alldata={Infos} />
+          <Divider />
+          <RecomendedToThis alldata={Infos} />
+          <Divider />
+          <ReviewsLocal alldata={Infos} />
+          <Divider />
+        </BodyDetalhes>
+        <Footer />
+      </>
     </>
   );
 };
