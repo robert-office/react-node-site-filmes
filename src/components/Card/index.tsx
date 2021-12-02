@@ -11,7 +11,7 @@ export const Card = ({ card }: Props) => {
     <div
       className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card"
       id={String(card.id)}
-      style={{ minWidth: "150px" }}
+      style={{ minWidth: "120px" }}
     >
       <div className="relative rounded-t-lg">
         <a
@@ -30,7 +30,7 @@ export const Card = ({ card }: Props) => {
             </>
           ) : (
             <img
-              className="object-cover w-full mb-2 overflow-hidden rounded-t-lg shadow-sm grow"
+              className="object-cover w-full mb-2 overflow-hidden rounded-t-lg shadow-sm grow max-h-96 md:max-h-96"
               style={{ minHeight: "150px" }}
               alt="PostImage"
               src={"https://image.tmdb.org/t/p/w300" + card.poster_path}

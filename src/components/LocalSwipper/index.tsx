@@ -13,34 +13,34 @@ export const LocalSwipper = class Grid extends React.Component {
   render() {
     return (
         <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
+          slidesPerView={2}
+          spaceBetween={20}
           pagination={{
             clickable: true,
           }}
           breakpoints={{
             490: {
-              slidesPerView: 1,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
 
             750: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-
-            980: {
               slidesPerView: 4,
               spaceBetween: 20,
             },
 
-            1100: {
+            980: {
               slidesPerView: 5,
               spaceBetween: 20,
             },
 
-            1600: {
+            1100: {
               slidesPerView: 6,
+              spaceBetween: 20,
+            },
+
+            1600: {
+              slidesPerView: 7,
               spaceBetween: 20,
             },
           }}
