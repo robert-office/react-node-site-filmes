@@ -1,11 +1,11 @@
 import { Divider, Rating, Skeleton } from "@mui/material";
 import { ApiExternalResultsReviews } from "backend/services/getReviewsService";
 
-type ReviewCard = {
+type reviewCard = {
   reviewData: ApiExternalResultsReviews;
 };
 
-export default function ReviewCard({ reviewData }: ReviewCard) {
+export default function ReviewCard({ reviewData }: reviewCard) {
   let patch = reviewData.author_details.avatar_path;
   let Havehttps = false;
   Havehttps =
@@ -15,8 +15,8 @@ export default function ReviewCard({ reviewData }: ReviewCard) {
 
   return (
     <figure
-      className="relative bg-gray-100 rounded-xl p-8"
-      style={{ minWidth: "300px", maxHeight: "500px" }}
+      className="relative bg-gray-100 rounded-xl p-8 overflow-y-scroll overflow-x-hidden"
+      style={{ minWidth: "300px", maxWidth: "300px", maxHeight: "400px" }}
     >
       {Havehttps ? (
         <Skeleton
@@ -34,21 +34,29 @@ export default function ReviewCard({ reviewData }: ReviewCard) {
       )}
 
       <div className="relative w-full h-auto my-4 flex flex-row justify-center">
-        <Rating name="read-only" value={Math.round(reviewData.author_details.rating) / 2} max={5} readOnly />
+        <Rating
+          name="read-only"
+          value={Math.round(reviewData.author_details.rating) / 2}
+          max={5}
+          readOnly
+        />
       </div>
 
-      <Divider/>
+      <Divider />
+
+      <figcaption className="font-medium py-2">
+        <div className="text-indigo-600 text-center">{reviewData.author}</div>
+        <div className="text-gray-500 text-center">
+          {reviewData.author}, {reviewData.created_at}
+        </div>
+      </figcaption>
+
+      <Divider />
 
       <div className="pt-6 text-center space-y-4 mx-auto">
         <blockquote>
-          <p className="text-lg font-semibold">{reviewData.content}</p>
+          <p className="text-xs font-semibold">{reviewData.content}</p>
         </blockquote>
-        <figcaption className="font-medium">
-          <div className="text-indigo-600">{reviewData.author}</div>
-          <div className="text-gray-500">
-            {reviewData.author}, {reviewData.created_at}
-          </div>
-        </figcaption>
       </div>
     </figure>
   );

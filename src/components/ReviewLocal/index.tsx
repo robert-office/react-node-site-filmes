@@ -28,9 +28,9 @@ export const ReviewsLocal = ({ alldata }: Props) => {
           <h2 className="font-extrabold leading-5 tracking-tight text-sm mb-5 text-center sm:text-left">
             Reviews
           </h2>
-          <div className="overflow-scroll flex flex-row gap-2">
+          <div className="overflow-x-scroll flex flex-row gap-2">
             {reviews.results.map((review) => {
-              return <ReviewCard reviewData={review} key={`dfsf`} />;
+              return <ReviewCard reviewData={review} key={`review_${review.id}`} />;
             })}
           </div>
         </div>
