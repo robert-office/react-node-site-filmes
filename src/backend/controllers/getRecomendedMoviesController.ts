@@ -2,8 +2,8 @@ import { getRecomendedMoviesService } from "backend/services/getRecomendedMovies
 
 
 export class getRecomendedMoviesController {
-    handle(){
+    handle(page: number = 1){
         const service = new getRecomendedMoviesService();
-        return service.execute();
+        return service.execute(page);
     }
 }

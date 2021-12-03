@@ -8,7 +8,10 @@ import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export const Recomendeds = () => {
   const [cards, setCards] = useState<ApiExternalResponse>({
-    results : []
+    results: [],
+    page: 1,
+    total_pages: 10,
+    total_results: 500
   });
 
   const envolviment = {

@@ -3,6 +3,7 @@ import { Detalhes } from "pages/detalhes";
 import Home from "pages/Home";
 import Login from "pages/login";
 import { My404 } from "pages/My40/My404";
+import Todos from "pages/todos";
 import {  BrowserRouter, Route, Switch } from "react-router-dom";
 
 function Routes() {
@@ -24,8 +25,8 @@ function Routes() {
             </Route>
                 
             
-            <Route path="/todos/:type" exact>
-                <Login />
+            <Route path="/todos/:content" exact>
+                <Todos/>
             </Route>
 
             {/* ROTA PADRÃO 404 */}

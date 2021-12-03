@@ -1,8 +1,8 @@
 import { getPopularTvService } from "backend/services/getPopularTvService";
 
 export class getPopularTvController {
-    handle(){
+    handle(page: number = 1){
         const service = new getPopularTvService();
-        return service.execute();
+        return service.execute(page);
     }
 }

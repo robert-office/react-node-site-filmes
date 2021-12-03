@@ -10,6 +10,9 @@ import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 export const TvPopular = () => {
   const [cards, setCards] = useState<ApiExternalResponse>({
     results: [],
+    page: 1,
+    total_pages: 10,
+    total_results: 500
   });
 
   const envolviment = {

@@ -15,6 +15,9 @@ type Props = {
 export const RecomendedToThis = ({ alldata }: Props) => {
   const [cards, setCards] = useState<ApiExternalResponse>({
     results: [],
+    page: 1,
+    total_pages: 10,
+    total_results: 500
   });
 
   useEffect(() => {

@@ -1,8 +1,8 @@
 import { getPopularMoviesService } from "backend/services/getPopularMoviesService";
 
 export class getPopularMoviesController {
-    handle(){
+    handle(page: number = 1){
         const service = new getPopularMoviesService();
-        return service.execute();
+        return service.execute(page);
     }
 }

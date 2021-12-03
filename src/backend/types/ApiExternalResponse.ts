@@ -3,8 +3,8 @@ import { Genre } from "./ApiExternalGenre";
 export type ApiExternalResponse = {
   page?: number;
   results: ApiExternalResults[];
-  total_pages?: number;
-  total_results?: number;  
+  total_pages: number;
+  total_results: number;  
 };
 
 export type ApiExternalResults = {

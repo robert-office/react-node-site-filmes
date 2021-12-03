@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import { getDetailsController } from "backend/controllers/getDetailsController";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import { BodyDetalhes } from "components/bodyDetalhes";
@@ -9,7 +8,6 @@ import { RecomendedToThis } from "components/RecomendedToThis";
 import { ReviewsLocal } from "components/ReviewLocal";
 import { Similar } from "components/Similar";
 import { TraillersLocal } from "components/TraillersLocal";
-import { My404 } from "pages/My40/My404";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 

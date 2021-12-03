@@ -6,7 +6,7 @@
 
 @layer components {
     body{
-        @apply bg-bgColor;
+        @apply bg-white;
     }
     
     {{ /* non black text colors */ }}

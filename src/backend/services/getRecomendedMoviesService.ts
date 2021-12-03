@@ -3,11 +3,11 @@ import { httpController } from "backend/controllers/htppController";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export class getRecomendedMoviesService {
-    execute() {
+    execute(page: number) {
         const http = new httpController();
         
         return http
         .handle( new ExternalMovies() )
-        .get<ApiExternalResponse>(`/discover/movie?api_key=${process.env.REACT_APP_BASE_API_FILMES_KEY}`);
+        .get<ApiExternalResponse>(`/discover/movie?api_key=${process.env.REACT_APP_BASE_API_FILMES_KEY}&page=${page}&language=pt-BR`);
     }
 }
