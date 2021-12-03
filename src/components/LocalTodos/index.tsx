@@ -46,7 +46,7 @@ export const LocalTodos = ({ content }: Props) => {
                 <div className="w-full h-full relative flex flex-col">
                   <Card card={card} />
                   <p className="text-center text-base font-semibold">
-                    {card.name}
+                    {card.name || card.title}
                   </p>
                 </div>
               </>
