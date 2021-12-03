@@ -1,4 +1,3 @@
-import { Pagination } from "@mui/material";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 import { Card } from "components/Card";
 import PaginationLink from "components/PaginationLink/PaginationLink";
@@ -10,7 +9,7 @@ type Props = {
   content: string;
 };
 
-export const LocalSearch = ({ content }: Props) => {
+export const LocalTodos = ({ content }: Props) => {
   const search = useLocation().search;
   const page = Number(new URLSearchParams(search).get("page"));
   const PageAtual = page ? page : 1;
@@ -18,7 +17,7 @@ export const LocalSearch = ({ content }: Props) => {
     results: [],
     page: 1,
     total_pages: 10,
-    total_results: 500
+    total_results: 500,
   });
 
   useEffect(() => {
@@ -40,13 +39,29 @@ export const LocalSearch = ({ content }: Props) => {
             Foram achados {alldata.total_results} registros
           </span>
         </div>
-        <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6">
+        <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-5 sm:grid-cols-4 grid-cols-2 gap-x-6 gap-y-12 w-full mt-6">
           {alldata.results.map((card) => {
-            return <Card card={card} />;
+            return (
+              <>
+                <div className="w-full h-full relative flex flex-col">
+                  <Card card={card} />
+                  <p className="text-center text-base font-semibold">
+                    {card.name}
+                  </p>
+                </div>
+              </>
+            );
           })}
         </div>
         <div className="flex justify-center mt-8">
-          { !!alldata.total_pages  ? (<PaginationLink content={content} totalPages={String(alldata.total_pages)} />) : (<></>) }
+          {!!alldata.total_pages ? (
+            <PaginationLink
+              content={content}
+              totalPages={String(alldata.total_pages)}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </section>
     </>

@@ -1,6 +1,6 @@
 import { BodyDetalhes } from "components/bodyDetalhes";
 import Footer from "components/Footer";
-import { LocalSearch } from "components/LocalSearch";
+import { LocalTodos } from "components/LocalTodos";
 import { OtherNavBar } from "components/NavBar";
 import { useParams } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const Todos = () => {
     <>
       <OtherNavBar />
       <BodyDetalhes>
-        <LocalSearch content={content}/>
+        <LocalTodos content={content}/>
       </BodyDetalhes>
       <Footer />
     </>
