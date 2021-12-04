@@ -19,7 +19,7 @@ export const Card = ({ card }: Props) => {
             card.name
               ? card.name.replace(/ /g, "_")
               : card.title?.replace(/ /g, "_")
-          }`}
+          }/${card.id}`}
           className="block"
         >
           {!card.poster_path ? (

@@ -20,7 +20,7 @@ function Routes() {
                 <Login />
             </Route>
 
-            <Route path="/detalhes/:search" exact>
+            <Route path="/detalhes/:search/:id" exact>
                 <Detalhes />
             </Route>
                 

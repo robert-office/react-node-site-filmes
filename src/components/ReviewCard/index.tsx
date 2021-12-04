@@ -15,17 +15,17 @@ export default function ReviewCard({ reviewData }: reviewCard) {
 
   return (
     <>
-      <figure className="bg-gray-100 rounded-xl p-4 border-l-8 border-indigo-600">
+      <figure className="group relative bg-gray-100 rounded-xl p-4 shadow-lg hover:shadow-xl border-2 hover:border-indigo-600" style={{minWidth: "300px"}}> 
         {Havehttps ? (
           <Skeleton
             variant="circular"
             width={128}
             height={128}
-            className="w-32 h-32 rounded-full mx-auto"
+            className="w-32 h-32 rounded-full mx-auto border-2 group-hover:border-indigo-600 transition-colors"
           />
         ) : (
           <img
-            className="w-32 h-32 rounded-full mx-auto"
+            className="w-32 h-32 rounded-full mx-auto border-2 group-hover:border-indigo-600 p-1"
             src={`https://image.tmdb.org/t/p/w300${reviewData.author_details.avatar_path}`}
             alt="foto perfil"
             width={384}

@@ -45,11 +45,15 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
             />
           </>
         ) : (
-          <img
-            className="h-48 w-full rounded-t-lg shadow-md object-cover object-center"
-            src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
-            alt="imgPoster"
-          />
+          <>
+            
+            <img
+              style={{zIndex: "1"}}
+              className="h-48 w-full rounded-t-lg shadow-md object-cover object-center"
+              src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
+              alt="imgPoster"
+            />
+          </>
         )}
 
         <div className="absolute sm:-mt-32 -mt-20 w-full z-10">

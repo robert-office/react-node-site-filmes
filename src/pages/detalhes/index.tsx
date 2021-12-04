@@ -18,7 +18,7 @@ export const Detalhes = () => {
     id: 0,
   });
 
-  let { search } = useParams<{ search: string }>();
+  let { search, id } = useParams<{ search: string; id: string }>();
 
   useEffect(() => {
     const controller = new getDetailsController();
@@ -27,11 +27,25 @@ export const Detalhes = () => {
       } else {
         /// pega somente o primeiro resultado
         const justFirst = data.data.results[0];
+        /// seta já pra primeira correspondencia
+        let correctMovie = justFirst;
+
+        /// procura nos resultados o id que foi informado
+        /// se tiver então vamos utilizar os dados dele
+        /// senão encontrar, provalvemente vai mostrar errado
+        /// então agente só seta pra primeira correspondencia 
+        /// que mais parece com a string do nome do filme
+        data.data.results.map(movie => {
+          if( String(movie.id) === id ){
+            correctMovie = movie;
+          }
+        })
+
         /// set the data
-        setInfos(justFirst);
+        setInfos(correctMovie);
       }
     });
-  }, [search]);
+  }, [id, search]);
 
   return (
     <>
