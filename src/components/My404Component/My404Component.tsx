@@ -11,14 +11,14 @@ export const My404Component = () => {
   return (
     <>
       {/* This is an example component */}
-      <div className="bg-bgColor flex items-center container mx-auto my-32">
-        <div className="container flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
+      <div className="bg-bgColor dark:bg-gray-800 flex items-center container mx-auto my-20">
+        <div className="container flex flex-col-reverse md:flex-row items-center justify-center px-5 text-gray-800 dark:text-gray-50">
           <div className="max-w-md flex align-middle flex-col">
-            <div className="text-5xl font-dark font-bold text-center">404</div>
-            <p className="text-2xl md:text-3xl font-light leading-normal md:text-left text-center my-4">
+            <div className="text-5xl font-dark font-bold text-center dark:text-gray-50">404</div>
+            <p className="text-2xl md:text-3xl font-light leading-normal md:text-left text-center my-4 dark:text-gray-50">
               Desculpe, não encontramos essa página.{" "}
             </p>
-            <p className="mb-8 md:text-left text-center my-4">
+            <p className="mb-8 md:text-left text-center my-4 dark:text-gray-50">
               Mas não se preocupe, volte a página que estava e siga procurando
               pelo conteúdo que desejava...
             </p>

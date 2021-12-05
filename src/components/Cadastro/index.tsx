@@ -4,7 +4,7 @@ export const CadastroForm = () => {
   return (
     <>
       {/* Section 1 */}
-      <section className="w-full bg-white">
+      <section className="w-full bg-white dark:bg-gray-800">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col lg:flex-row">
             <div className="relative w-full bg-cover lg:w-6/12 xl:w-7/12 bg-gradient-to-r ">
@@ -16,10 +16,10 @@ export const CadastroForm = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full bg-white lg:w-6/12 xl:w-5/12">
+            <div className="w-full bg-white dark:bg-gray-700 lg:w-6/12 xl:w-5/12">
               <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
-                <h4 className="w-full text-3xl font-bold my-2">Cadastre-se</h4>
-                <p className="text-lg text-gray-500">
+                <h4 className="w-full text-3xl font-bold my-2 dark:text-gray-50">Cadastre-se</h4>
+                <p className="text-lg text-gray-500 dark:text-gray-200">
                   ou, então você pode{" "}
                   <a href={process.env.REACT_APP_BASE_URL+"/login"} className="text-blue-600 underline">
                     logar-se
@@ -28,7 +28,7 @@ export const CadastroForm = () => {
                 </p>
                 <div className="relative w-full mt-10 space-y-8">
                   <div className="relative">
-                    <label className="font-medium text-gray-900">Nome</label>
+                    <label className="font-medium text-gray-900 dark:text-gray-50">Nome</label>
                     <input
                       type="text"
                       className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -36,7 +36,7 @@ export const CadastroForm = () => {
                     />
                   </div>
                   <div className="relative">
-                    <label className="font-medium text-gray-900">Email</label>
+                    <label className="font-medium text-gray-900 dark:text-gray-50">Email</label>
                     <input
                       type="text"
                       className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -44,7 +44,7 @@ export const CadastroForm = () => {
                     />
                   </div>
                   <div className="relative">
-                    <label className="font-medium text-gray-900">
+                    <label className="font-medium text-gray-900 dark:text-gray-50">
                       Senha
                     </label>
                     <input

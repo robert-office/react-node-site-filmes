@@ -1,7 +1,6 @@
-import { IconButton, ImageListItemBar, Rating, Skeleton } from "@mui/material";
+import { ImageListItemBar, Rating, Skeleton } from "@mui/material";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import "./styles.css";
-import InfoIcon from '@material-ui/icons/Info';
 import StarIcon from '@material-ui/icons/Star';
 
 type Props = {
@@ -11,7 +10,8 @@ type Props = {
 export const Card = ({ card }: Props) => {
   return (
     <div
-      className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg border-indigo-600 border-2 p-0.5 card h-auto grow shadow-xl"
+      className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto grow shadow-xl"
+      
       id={String(card.id)}
       style={{ minWidth: "120px" }}
     >
@@ -28,7 +28,7 @@ export const Card = ({ card }: Props) => {
             <>
               <div>
                 <Skeleton variant="text" width={'100%'} />
-                <Skeleton width={'100%'} variant="rectangular" height={280} />
+                <Skeleton width={'100%'} variant="rectangular" height={252} />
                 <Skeleton variant="text" width={'100%'} />
               </div>
             </>

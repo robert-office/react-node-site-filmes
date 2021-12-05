@@ -10,8 +10,8 @@ export const Label = ({ envolviment }: EnvolvimentLabel) => {
   return (
     <div className="px-5 relative flex md:items-end font-bold md:flex-row flex-col">
       <div className="flex flex-row">
-        <h2 className="text-2xl">{envolviment.SectionTitle} </h2>
-        <a className="ml-10 flex items-center text-gray-400">
+        <h2 className="text-2xl text-gray-50">{envolviment.SectionTitle} </h2>
+        <a className="ml-10 flex items-center text-gray-400 dark:text-gray-300">
           <span className="text-sm">{envolviment.SectionSubTitle}</span>
           <svg
             className="ml-3 h-3.5"

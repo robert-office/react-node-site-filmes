@@ -15,7 +15,7 @@ export default function ReviewCard({ reviewData }: reviewCard) {
 
   return (
     <>
-      <figure className="group relative bg-gray-100 rounded-xl p-4 shadow-lg hover:shadow-xl border-2 hover:border-indigo-600" style={{minWidth: "300px"}}> 
+      <figure className="group relative bg-gray-100 dark:bg-gray-700 rounded-xl p-4 shadow-lg hover:shadow-xl border-2 hover:border-indigo-600" style={{minWidth: "300px"}}> 
         {Havehttps ? (
           <Skeleton
             variant="circular"
@@ -43,8 +43,8 @@ export default function ReviewCard({ reviewData }: reviewCard) {
                 readOnly
               />
             </div>
-            <div className="text-cyan-600">{reviewData.author}</div>
-            <div className="text-gray-500">{reviewData.created_at}</div>
+            <div className="text-cyan-600 ">{reviewData.author}</div>
+            <div className="text-gray-500 dark:text-gray-50">{reviewData.created_at}</div>
           </figcaption>
         </div>
       </figure>

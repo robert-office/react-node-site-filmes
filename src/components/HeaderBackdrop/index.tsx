@@ -35,7 +35,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
       ! movie/tv banner and avatar
       ! ------------------------------------------------------------
       */}
-      <div className="relative w-full">
+      <div className="relative w-full dark:bg-gray-700">
         {!alldata.backdrop_path ? (
           <>
             <Skeleton
@@ -79,10 +79,10 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
       ! movie/tv general information
       ! ------------------------------------------------------------
       */}
-      <div className="relative bg-bgColor p-5 pt-24 flex flex-col">
+      <div className="relative bg-bgColor dark:bg-gray-700 p-5 pt-24 flex flex-col">
         {/* title name */}
         <div className="w-full sm:block flex justify-center">
-          <p className="text-xs font-thin p-1">
+          <p className="text-xs font-thin p-1 dark:text-gray-50">
             votado por {alldata.vote_count} pessoas
           </p>
 
@@ -96,7 +96,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
 
         {/* title name */}
         <div className="w-full sm:block flex justify-center">
-          <h2 className="font-extrabold leading-5 tracking-tight text-lg">
+          <h2 className="font-extrabold leading-5 tracking-tight text-lg dark:text-white">
             {" "}
             {alldata.title ? alldata.title : alldata.name}{" "}
           </h2>
@@ -113,7 +113,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
               <Chip
                 label={genre.name}
                 color="success"
-                variant="outlined"
+                
                 key={`chip_${String(Math.random() * 1000)}`}
               />
             ))}
@@ -122,10 +122,10 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
 
         {/* descrição name */}
         <div className="w-full flex flex-col justify-center sm:justify-start mt-10">
-          <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left">
+          <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left dark:text-gray-50">
             Descrição
           </h2>
-          <h3 className="font-medium leading-5 tracking-tight text-base mt-3">
+          <h3 className="font-medium leading-5 tracking-tight text-base mt-3 dark:text-gray-50">
             {alldata.overview
               ? alldata.overview
               : "Não há nenhuma descrição no momento..."}

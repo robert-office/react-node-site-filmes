@@ -16,10 +16,12 @@ export default function PaginationLink( { content, totalPages }: Props ) {
           const query = new URLSearchParams(location.search);
           const page = parseInt(query.get('page') || '1', 10);
           return (
+            
+            <div className="relative w-auto h-auto p-0.5 bg-gray-100 dark:bg-gray-100 rounded">
             <Pagination
               page={page}
               count={parseInt(totalPages)}
-              variant="outlined"
+              
               color="primary"
               renderItem={(item) => (
                 <PaginationItem
@@ -29,6 +31,8 @@ export default function PaginationLink( { content, totalPages }: Props ) {
                 />
               )}
             />
+            </div>
+            
           );
         }}
       </Route>

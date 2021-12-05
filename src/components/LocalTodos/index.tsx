@@ -30,12 +30,12 @@ export const LocalTodos = ({ content }: Props) => {
 
   return (
     <>
-      <section className="p-5">
+      <section className="p-5 dark:bg-gray-700 rounded">
         <div className="relative">
-          <h2 className="text-2xl font-extrabold"> Todos ( {content} ) </h2>
+          <h2 className="text-2xl font-extrabold dark:text-gray-50"> Todos ( {content} ) </h2>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-6">
-          <span className="text-sm font-semibold">
+          <span className="text-sm font-semibold dark:text-gray-200">
             Foram achados {alldata.total_results} registros
           </span>
         </div>
@@ -45,7 +45,7 @@ export const LocalTodos = ({ content }: Props) => {
               <>
                 <div className="w-full h-full relative flex flex-col">
                   <Card card={card} />
-                  <p className="text-center text-base font-semibold">
+                  <p className="text-center text-base font-semibold mt-4 dark:text-gray-50">
                     {card.name || card.title}
                   </p>
                 </div>

@@ -2,11 +2,11 @@ const Footer = () => {
   return (
     <>
       {/* Section 1 */}
-      <section className="text-gray-700 bg-white body-font">
+      <section className="text-gray-700 bg-white dark:bg-gray-800 body-font">
         <div className="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
           <a
             href="#_"
-            className="text-xl font-black leading-none text-gray-900 select-none logo"
+            className="text-xl font-black leading-none text-gray-900 dark:text-gray-50 select-none logo"
           >
             AcompanyOn<span className="text-indigo-600">.</span>
           </a>

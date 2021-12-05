@@ -22,10 +22,10 @@ export const ReviewsLocal = ({ alldata }: Props) => {
 
   return (
     <>
-      {/* Section */}
-      <section className="bg-bgColor py-4 overflow-x-scroll">
-        <div className={`relative bg-bgColor flex flex-col mt-10 px-5 ${reviews.results.length > 1 ? "flex" : "hidden"}`}>
-          <h2 className="font-extrabold leading-5 tracking-tight text-sm mb-5 text-center sm:text-left">
+      {/* Section */} 
+      <section className="bg-bgColor dark:bg-gray-700 py-4 overflow-x-scroll">
+        <div className={`relative bg-bgColor dark:bg-gray-700 flex flex-col mt-10 px-5 ${reviews.results.length > 1 ? "flex" : "hidden"}`}>
+          <h2 className="font-extrabold leading-5 tracking-tight text-sm mb-5 text-center sm:text-left dark:text-gray-50">
             Reviews
           </h2>
           <div className="flex flex-row gap-2 p2">

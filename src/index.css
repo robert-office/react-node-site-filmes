@@ -4,9 +4,10 @@
 @tailwind utilities;
 
 
+
 @layer components {
     body{
-        @apply bg-white;
+        @apply bg-white dark:bg-gray-800;
     }
     
     {{ /* non black text colors */ }}
@@ -56,12 +57,23 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #F4F4F4;
+    background-color: rgba(39, 39, 42, 1);
 }
 ::-webkit-scrollbar {
+    height: 4px;
     width: 6px;
-    background: #F4F4F4;
+    background: rgb(85, 85, 92);
 }
 ::-webkit-scrollbar-thumb {
-    background: #dad7d7;
+    background: rgb(80, 80, 87);
+}
+
+
+@keyframes neon {
+    from {
+        filter: drop-shadow(0 0 2px var(---cor-neon));
+    }
+    to {
+        filter: drop-shadow(0 0 10px var(---cor-neon));
+    }
 }

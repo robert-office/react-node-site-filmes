@@ -30,13 +30,13 @@ export const RecomendedToThis = ({ alldata }: Props) => {
   return (
     <>
       {/* Section */}
-      <section className="bg-bgColor">
+      <section className="bg-bgColor dark:bg-gray-700">
         <div className="w-full px-5 py-6 mx-auto space-y-5 my-4 max-w-7xl">
           {cards.results.length < 1 ? (
             <>{/* NÃO HÁ SIMILARES NO MOMENTO */}</>
           ) : (
             <>
-              <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left">
+              <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left dark:text-gray-50">
                 Recomendados para quem viu esse
               </h2>
               {/* Local Cards */}
