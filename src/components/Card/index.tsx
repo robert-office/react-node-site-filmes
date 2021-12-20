@@ -11,17 +11,16 @@ export const Card = ({ card }: Props) => {
   return (
     <div
       className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto grow shadow-xl"
-      
+
       id={String(card.id)}
       style={{ minWidth: "120px" }}
     >
       <div className="relative rounded-t-lg h-auto pb-0">
         <a
-          href={`${process.env.REACT_APP_BASE_URL}/detalhes/${
-            card.name
+          href={`${process.env.REACT_APP_BASE_URL}/detalhes/${card.name
               ? card.name.replace(/ /g, "_")
               : card.title?.replace(/ /g, "_")
-          }/${card.id}`}
+            }/${card.id}`}
           className="block"
         >
           {!card.poster_path ? (
@@ -42,18 +41,19 @@ export const Card = ({ card }: Props) => {
           )}
         </a>
         <ImageListItemBar
-            subtitle={<Rating
-              sx={{color: "rgba(79, 70, 229, 1)"}}
-              size="small"
-              precision={0.5}
-              name="read-only"
-              value={Math.round(card.vote_average) / 2}
-              max={5}
-              readOnly
-              emptyIcon={<StarIcon style={{ opacity: 1, color: "white" }} fontSize="inherit" />}
-            />}
-            
-          />
+          subtitle={
+            <div className="flex justify-center">
+              <Rating
+                size="small"
+                precision={0.5}
+                name="read-only"
+                value={Math.round(card.vote_average) / 2}
+                max={5}
+                readOnly
+              />
+            </div>
+          }
+        />
       </div>
     </div>
   );

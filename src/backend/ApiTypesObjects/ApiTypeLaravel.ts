@@ -5,7 +5,7 @@ import { IApiTypes } from "./IApiTypes";
 * em Laravel
 */
 export class LaravelApi implements IApiTypes {
-    ApiUrl = String(process.env.REACT_APP_BASE_API_URL);
+    ApiUrl = String(process.env.REACT_APP_BASE_API_LARAVEL);
     
     GetApiUrl(): string{
         return this.ApiUrl;
