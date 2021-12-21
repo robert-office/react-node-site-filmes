@@ -1,4 +1,4 @@
-import imageLanding from "../../assets/images/BackgroundsLandings/filmes.png";
+import imageLanding from "../../assets/images/movie-bg.jpg";
 
 export const LandindPage = () => {
   return (
@@ -22,7 +22,7 @@ export const LandindPage = () => {
                 </p>
                 <div className="relative flex flex-col sm:flex-row sm:space-x-4">
                   <a
-                    href="#_"
+                    href={process.env.REACT_APP_BASE_URL+"/login"}
                     className="primaryNonDarkColorButton w-full sm:w-auto"
                   >
                     Logar-se
@@ -41,7 +41,7 @@ export const LandindPage = () => {
                     </svg>
                   </a>
                   <a
-                    href="#_"
+                    href={process.env.REACT_APP_BASE_URL+"/cadastro"}
                     className="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
                   >
                     Cadastrar-se
