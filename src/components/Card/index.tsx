@@ -19,8 +19,8 @@ export const Card = ({ card }: Props) => {
       <div className="relative rounded-t-lg h-auto pb-0">
         <a
           href={`${process.env.REACT_APP_BASE_URL}/detalhes/${card.name
-            ? card.name.replace(/ /g, "_")
-            : card.title?.replace(/ /g, "_")
+            ? card.name.replace(/ /g, "_").replace(/\//g, ' ')
+            : card.title?.replace(/ /g, "_").replace(/\//g, ' ')
             }/${card.id}`}
           className="block"
         >
@@ -42,8 +42,23 @@ export const Card = ({ card }: Props) => {
           )}
         </a>
 
-        <ImageListItemBar className="opacity-0 group-hover:opacity-100 rounded-t-lg" style={{ transition: '0.3s' }} sx={{ backgroundColor: "rgba(79, 70, 229, .7)" }}
+        <ImageListItemBar className="opacity-0 group-hover:opacity-100 rounded-t-lg" style={{ transition: '0.3s' }} sx={{ backgroundColor: "rgba(0, 0, 0, .7)" }}
           position="top"
+
+          title={
+            <>
+              <a href={`${process.env.REACT_APP_BASE_URL}/detalhes/${card.name
+                ? card.name.replace(/ /g, "_").replace(/\//g, ' ')
+                : card.title?.replace(/ /g, "_").replace(/\//g, ' ')
+                }/${card.id}`}
+              >
+                <div className=" text-center overflow-x-scroll">
+                  <p className="text-center"> {card.name ? card.name : card.title} </p>
+                </div>
+              </a>
+            </>
+          }
+
           subtitle={
             <div className=" flex justify-between opacity-100">
               <IconButton
@@ -66,17 +81,26 @@ export const Card = ({ card }: Props) => {
           }
         />
 
-        <ImageListItemBar className="opacity-0 group-hover:opacity-100" style={{ transition: '0.3s' }} sx={{ backgroundColor: "rgba(79, 70, 229,.7)" }}
+        <ImageListItemBar className="opacity-0 group-hover:opacity-100" style={{ transition: '0.3s' }} sx={{ backgroundColor: "rgba(0, 0, 0,.7)" }}
           subtitle={
-            <div className="flex justify-center opacity-100">
-              <Rating
-                size="small"
-                precision={0.5}
-                name="read-only"
-                value={Math.round(card.vote_average) / 2}
-                max={5}
-                readOnly
-              />
+            <div className="flex flex-col opacity-100">
+              <div className="flex justify-between">
+                <Rating
+                  sx={{ color: "white" }}
+                  size="small"
+                  precision={0.5}
+                  name="read-only"
+                  value={Math.round(card.vote_average) / 2}
+                  max={5}
+                  readOnly
+                />
+                <p>
+                  ( {Math.round(card.vote_average) / 2} )
+                </p>
+              </div>
+              <div>
+                <p className="text-xs"> votado por: { card.vote_count } pessoas </p>
+              </div>
             </div>
           }
         />
