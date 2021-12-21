@@ -5,6 +5,7 @@ import Login from "pages/login";
 import { My404 } from "pages/My40/My404";
 import Todos from "pages/todos";
 import {  BrowserRouter, Route, Switch } from "react-router-dom";
+import Dashboard from './pages/dashboard/index';
 
 function Routes() {
     return (
@@ -13,6 +14,11 @@ function Routes() {
             <Route path="/" exact>
                 <Home />
             </Route>
+
+            <Route path="/dashboard" exact>
+                <Dashboard />
+            </Route>
+
             <Route path="/cadastro" exact>
                 <Cadastro />
             </Route>

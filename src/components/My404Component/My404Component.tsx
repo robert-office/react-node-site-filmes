@@ -11,7 +11,7 @@ export const My404Component = () => {
   return (
     <>
       {/* This is an example component */}
-      <div className="bg-bgColor dark:bg-gray-800 flex items-center container mx-auto my-20">
+      <div className="bg-bgColor dark:bg-gray-800 flex items-center container mx-auto min-h-screen">
         <div className="container flex flex-col-reverse md:flex-row items-center justify-center px-5 text-gray-800 dark:text-gray-50">
           <div className="max-w-md flex align-middle flex-col">
             <div className="text-5xl font-dark font-bold text-center dark:text-gray-50">404</div>
