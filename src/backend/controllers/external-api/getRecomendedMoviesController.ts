@@ -1,4 +1,4 @@
-import { getRecomendedMoviesService } from "backend/services/getRecomendedMoviesService";
+import { getRecomendedMoviesService } from "backend/services/external-api/getRecomendedMoviesService";
 
 
 export class getRecomendedMoviesController {

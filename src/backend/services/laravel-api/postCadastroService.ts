@@ -14,7 +14,7 @@ export class postCadastroService {
         }
 
         return http
-        .handle( new LaravelApi )
+        .handle( new LaravelApi() )
         .post("/register", data, config);
     }
 }

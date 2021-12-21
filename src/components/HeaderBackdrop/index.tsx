@@ -2,7 +2,7 @@ import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import Rating from "@mui/material/Rating";
 import { Chip, Divider, Skeleton, Stack } from "@mui/material";
 import { ExternalGenre, Genre } from "backend/types/ApiExternalGenre";
-import { getGenresController } from "backend/controllers/getGenresController";
+import { getGenresController } from "backend/controllers/external-api/getGenresController";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -26,7 +26,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
         });
       });
     });
-  }, [alldata.genre_ids]);
+  }, [alldata.genre_ids, alldata.media_type]);
 
   return (
     <>

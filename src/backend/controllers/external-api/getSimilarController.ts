@@ -1,4 +1,4 @@
-import { getSimilarService } from "backend/services/getSimilarService";
+import { getSimilarService } from "backend/services/external-api/getSimilarService";
 
 export class getSimilarController {
     handle(movieOrTv : string, id: number){

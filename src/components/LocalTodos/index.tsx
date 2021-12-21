@@ -1,7 +1,7 @@
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 import { Card } from "components/Card";
 import PaginationLink from "components/PaginationLink/PaginationLink";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getController } from "utils/seletive";
 
@@ -23,7 +23,7 @@ export const LocalTodos = ({ content }: Props) => {
   useEffect(() => {
     const Controller = getController(content);
 
-    Controller.handle(PageAtual).then((response) => {
+    Controller.handle(PageAtual).then((response: { data: SetStateAction<ApiExternalResponse>; }) => {
       setAlldata(response.data);
     });
   }, [PageAtual, content]);

@@ -1,4 +1,4 @@
-import { getReviewsService } from "backend/services/getReviewsService";
+import { getReviewsService } from "backend/services/external-api/getReviewsService";
 
 export class getReviewsController {
     handle(movieOrTv: string, id: number){

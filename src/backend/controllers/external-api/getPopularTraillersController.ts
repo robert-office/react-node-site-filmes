@@ -1,4 +1,4 @@
-import { getPopularTraillersService } from "backend/services/getPopularTraillersService";
+import { getPopularTraillersService } from "backend/services/external-api/getPopularTraillersService";
 
 export class getPopularTraillersController {
     handle(movie_id : number,  movieOrTv: string){

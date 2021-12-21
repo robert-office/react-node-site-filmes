@@ -1,5 +1,5 @@
-import { getReviewsController } from "backend/controllers/getReviewsController";
-import { ApiExternalResponseReviews } from "backend/services/getReviewsService";
+import { getReviewsController } from "backend/controllers/external-api/getReviewsController";
+import { ApiExternalResponseReviews } from "backend/services/external-api/getReviewsService";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import ReviewCard from "components/ReviewCard";
 import { useEffect, useState } from "react";

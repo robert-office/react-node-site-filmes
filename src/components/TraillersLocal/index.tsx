@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
 import { Trailler } from "components/Trailler";
 import { ApiExternalTraillers } from "backend/types/ApiExternalTraillers";
-import { getPopularTraillersController } from "backend/controllers/getPopularTraillersController";
+import { getPopularTraillersController } from "backend/controllers/external-api/getPopularTraillersController";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import { LocalSwipperTrailler } from "components/LocalSwipperTrailler";
 

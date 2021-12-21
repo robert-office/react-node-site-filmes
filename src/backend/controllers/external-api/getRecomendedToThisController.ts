@@ -1,4 +1,4 @@
-import { getRecomendedToThisService } from "backend/services/getRecomendedToThisService";
+import { getRecomendedToThisService } from "backend/services/external-api/getRecomendedToThisService";
 
 
 export class getRecomendedToThisController {

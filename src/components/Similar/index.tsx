@@ -6,7 +6,7 @@ import {
   ApiExternalResponse,
   ApiExternalResults,
 } from "backend/types/ApiExternalResponse";
-import { getSimilarController } from "backend/controllers/getSimilarController";
+import { getSimilarController } from "backend/controllers/external-api/getSimilarController";
 
 type Props = {
   alldata: ApiExternalResults;

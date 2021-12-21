@@ -1,5 +1,5 @@
-import { Divider, Rating, Skeleton } from "@mui/material";
-import { ApiExternalResultsReviews } from "backend/services/getReviewsService";
+import { Rating, Skeleton } from "@mui/material";
+import { ApiExternalResultsReviews } from "backend/services/external-api/getReviewsService";
 
 type reviewCard = {
   reviewData: ApiExternalResultsReviews;
@@ -15,7 +15,7 @@ export default function ReviewCard({ reviewData }: reviewCard) {
 
   return (
     <>
-      <figure className="group relative bg-gray-100 dark:bg-gray-700 rounded-xl p-4 shadow-lg hover:shadow-xl border-2 hover:border-indigo-600" style={{minWidth: "300px"}}> 
+      <figure className="group relative bg-gray-100 dark:bg-gray-700 rounded-xl p-4 shadow-lg hover:shadow-xl border-2 hover:border-indigo-600" style={{minWidth: "220px"}}> 
         {Havehttps ? (
           <Skeleton
             variant="circular"

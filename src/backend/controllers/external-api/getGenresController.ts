@@ -1,4 +1,4 @@
-import { getGenreService } from "backend/services/getGenreService";
+import { getGenreService } from "backend/services/external-api/getGenreService";
 
 export class getGenresController {
     handle(movieOrTv: string){

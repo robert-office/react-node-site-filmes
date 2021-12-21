@@ -3,7 +3,7 @@ import { Label } from "components/MoviesLabel";
 import { LocalSwipper } from "components/LocalSwipper";
 // Import Swiper React components
 import { SwiperSlide } from "swiper/react";
-import { getPopularTvController } from "backend/controllers/getPopularTvController";
+import { getPopularTvController } from "backend/controllers/external-api/getPopularTvController";
 import { Card } from "components/Card";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 

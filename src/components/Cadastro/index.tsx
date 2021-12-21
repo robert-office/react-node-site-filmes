@@ -1,5 +1,4 @@
-import { postCadastroController } from "backend/controllers/postCadastroController";
-import { HtmlHTMLAttributes } from "react";
+import { postCadastroController } from "backend/controllers/laravel-api/postCadastroController";
 import { serializeForm } from "utils/serializeForms";
 import svg from "../../assets/images/svgs/assistindoVideos.svg";
 
@@ -11,7 +10,9 @@ export const CadastroForm = () => {
     const form : HTMLFormElement  = document.querySelector('#form_cadastro')!;
     var data = serializeForm(form);
 
-    const controller = new postCadastroController().handle(data).then((response) => {
+    const controller = new postCadastroController();
+
+    controller.handle(data).then((response) => {
       console.log(response);
     });
   }

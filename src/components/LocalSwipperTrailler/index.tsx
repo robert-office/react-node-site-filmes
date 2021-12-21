@@ -44,9 +44,7 @@ export const LocalSwipperTrailler = class Grid extends React.Component {
         <Swiper
           slidesPerView={1}
           spaceBetween={0}
-          pagination={{
-            clickable: true,
-          }}
+          
           navigation={{
             nextEl: "." + next,
             prevEl: "." + prev,
@@ -61,6 +59,7 @@ export const LocalSwipperTrailler = class Grid extends React.Component {
           observeParents={true}
           parallax={true}
           className="mySwiperTrailler"
+          grabCursor={true}
         >
           {this.props.children}
         </Swiper>

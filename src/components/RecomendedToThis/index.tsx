@@ -6,7 +6,7 @@ import {
   ApiExternalResponse,
   ApiExternalResults,
 } from "backend/types/ApiExternalResponse";
-import { getRecomendedToThisController } from "backend/controllers/getRecomendedToThisController";
+import { getRecomendedToThisController } from "backend/controllers/external-api/getRecomendedToThisController";
 
 type Props = {
   alldata: ApiExternalResults;

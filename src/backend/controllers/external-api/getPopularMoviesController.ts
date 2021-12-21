@@ -1,4 +1,4 @@
-import { getPopularMoviesService } from "backend/services/getPopularMoviesService";
+import { getPopularMoviesService } from "backend/services/external-api/getPopularMoviesService";
 
 export class getPopularMoviesController {
     handle(page: number = 1){

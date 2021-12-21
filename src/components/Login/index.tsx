@@ -19,13 +19,13 @@ export const LoginForm = () => {
                 <h4 className="w-full text-3xl font-bold my-2 lg:text-left text-center dark:text-gray-50">Login</h4>
                 <p className="text-lg text-gray-500 dark:text-gray-200">
                   ou, então você pode{" "}
-                  <a href={process.env.REACT_APP_BASE_URL+"/cadastro"} className="text-blue-600 underline">
+                  <a href={process.env.REACT_APP_BASE_URL + "/cadastro"} className="text-blue-600 underline">
                     cadastrar-se
                   </a>
                   , se ainda não possui uma conta
                 </p>
                 <div className="relative w-full mt-10 space-y-8">
-                  
+
                   <div className="relative">
                     <label className="font-medium text-gray-900 dark:text-gray-50">Email</label>
                     <input
@@ -34,6 +34,7 @@ export const LoginForm = () => {
                       placeholder="Coloque Seu Endereço De Email"
                     />
                   </div>
+
                   <div className="relative">
                     <label className="font-medium text-gray-900 dark:text-gray-50">Senha</label>
                     <input

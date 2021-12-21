@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
 import { SwiperSlide } from "swiper/react";
 import { LocalSwipper } from "components/LocalSwipper";
-import { getRecomendedMoviesController } from "backend/controllers/getRecomendedMoviesController";
+import { getRecomendedMoviesController } from "backend/controllers/external-api/getRecomendedMoviesController";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export const Recomendeds = () => {

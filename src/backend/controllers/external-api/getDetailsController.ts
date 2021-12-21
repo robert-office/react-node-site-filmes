@@ -1,4 +1,4 @@
-import { getDetailsService } from "backend/services/getDetailsService";
+import { getDetailsService } from "backend/services/external-api/getDetailsService";
 
 export class getDetailsController {
     handle(search: string){

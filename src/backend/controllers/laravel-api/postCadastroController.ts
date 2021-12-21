@@ -1,4 +1,4 @@
-import { postCadastroService } from "backend/services/postCadastroService";
+import { postCadastroService } from "backend/services/laravel-api/postCadastroService";
 
 export class postCadastroController {
     handle(data: string){

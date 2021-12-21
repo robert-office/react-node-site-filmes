@@ -1,4 +1,4 @@
-import { getDetailsController } from "backend/controllers/getDetailsController";
+import { getDetailsController } from "backend/controllers/external-api/getDetailsController";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import { BodyDetalhes } from "components/bodyDetalhes";
 import Footer from "components/Footer";

@@ -1,4 +1,4 @@
-import { getPopularTvService } from "backend/services/getPopularTvService";
+import { getPopularTvService } from "backend/services/external-api/getPopularTvService";
 
 export class getPopularTvController {
     handle(page: number = 1){

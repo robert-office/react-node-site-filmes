@@ -15,9 +15,7 @@ export const LocalSwipper = class Grid extends React.Component {
         <Swiper
           slidesPerView={2}
           spaceBetween={20}
-          pagination={{
-            clickable: true,
-          }}
+          
           breakpoints={{
             490: {
               slidesPerView: 3,
@@ -47,6 +45,7 @@ export const LocalSwipper = class Grid extends React.Component {
           observer={true}
           observeParents={true}
           className="mySwiper"
+          grabCursor={true}
         >
           {this.props.children}
         </Swiper>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
 import { SwiperSlide } from "swiper/react";
 import { LocalSwipper } from "components/LocalSwipper";
-import { getPopularMoviesController } from "backend/controllers/getPopularMoviesController";
+import { getPopularMoviesController } from "backend/controllers/external-api/getPopularMoviesController";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 
 export const MoviePopular = () => {

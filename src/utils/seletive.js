@@ -1,6 +1,6 @@
-import { getPopularMoviesController } from "backend/controllers/getPopularMoviesController";
-import { getPopularTvController } from "backend/controllers/getPopularTvController";
-import { getRecomendedMoviesController } from "backend/controllers/getRecomendedMoviesController"
+import { getPopularMoviesController } from "backend/controllers/external-api/getPopularMoviesController";
+import { getPopularTvController } from "backend/controllers/external-api/getPopularTvController";
+import { getRecomendedMoviesController } from "backend/controllers/external-api/getRecomendedMoviesController"
 
 export function getController( selection ) {
     switch (selection) {
