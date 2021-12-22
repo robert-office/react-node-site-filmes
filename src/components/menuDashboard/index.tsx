@@ -11,7 +11,7 @@ type menuArray = {
     menus: list[];
 }
 
-export const menuDashboard = () => {
+export const MenuDashboard = () => {
     
     const menu: menuArray = {
         menus: [
@@ -39,7 +39,7 @@ export const menuDashboard = () => {
             {menu.menus.map((menu) => {
                 return (
                     <div>
-                        
+                        <DashboardList menuList={menu}/>
                     </div>
                 );
             })}
@@ -52,10 +52,10 @@ type Props = {
     menuList: list
 }
 
-export const dashboardList = ({menuList} : Props) => {
+export const DashboardList = ({menuList} : Props) => {
     return (
         <a
-        className="w-full font-thin uppercase text-blue-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800 border-r-4 border-blue-500"
+        className="w-full font-thin uppercase text-blue-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800 "
         href={menuList.menuHref }
         >
             <span className="text-left">

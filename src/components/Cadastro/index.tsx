@@ -7,7 +7,7 @@ export const CadastroForm = () => {
   /// cadastra o usuario
   const cadastrar = (e: any) => {
     e.preventDefault();
-    const form : HTMLFormElement  = document.querySelector('#form_cadastro')!;
+    const form : any  = document.querySelector('#form_cadastro')!;
     var data = serializeForm(form);
 
     const controller = new postCadastroController();
