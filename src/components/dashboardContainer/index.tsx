@@ -1,6 +1,5 @@
 import React from "react";
 import { MenuDashboard } from "components/MenuDashboard";
-import { BodyDetalhes } from "components/bodyDetalhes";
 
 export class DashboardContainer extends React.Component {
     render() {
@@ -9,8 +8,6 @@ export class DashboardContainer extends React.Component {
             <section className="w-full px-8">
                 <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
                     <div className="w-full">
-
-
                         <main className="bg-gray-100 dark:bg-gray-800 rounded-2xl h-auto overflow-hidden relative container py-5">
                             <div className="flex items-start justify-between">
                                 <div className="h-auto hidden lg:block my-4 shadow-lg relative w-80">

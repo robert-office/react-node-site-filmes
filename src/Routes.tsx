@@ -1,11 +1,14 @@
 import Cadastro from "pages/cadastro";
+import { DashboardFavoritesPage } from "pages/dashboardFavoritesPage";
+import { DashboardHomePage } from "pages/dashboardHomePage";
+import { DashboardSettingsPage } from "pages/dashboardSettingsPage";
+import { DashboardWatchlistPage } from "pages/dashboardWatchlistPage";
 import { Detalhes } from "pages/detalhes";
 import Home from "pages/Home";
 import Login from "pages/login";
 import { My404 } from "pages/My40/My404";
 import Todos from "pages/todos";
 import {  BrowserRouter, Route, Switch } from "react-router-dom";
-import Dashboard from './pages/dashboard/index';
 
 function Routes() {
     return (
@@ -16,8 +19,21 @@ function Routes() {
             </Route>
 
             <Route path="/dashboard" exact>
-                <Dashboard />
+                <DashboardHomePage />
             </Route>
+
+            <Route path="/dashboard/settings" exact>
+                <DashboardSettingsPage />
+            </Route>
+
+            <Route path="/dashboard/favorites" exact>
+                <DashboardFavoritesPage />
+            </Route>
+
+            <Route path="/dashboard/watchlist" exact>
+                <DashboardWatchlistPage />
+            </Route>
+
 
             <Route path="/cadastro" exact>
                 <Cadastro />
