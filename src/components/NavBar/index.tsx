@@ -5,7 +5,7 @@ export const OtherNavBar = () => {
     <>
       {/* Section 1 */}
       <section className="w-full px-2 md:px-0 text-gray-700 bg-white dark:bg-gray-800">
-        <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-6xl px-8 xl:px-5">
+        <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto sm:flex-row max-w-6xl px-8 xl:px-5">
           <div className="relative flex flex-col md:flex-row">
             <a
               href={process.env.REACT_APP_BASE_URL}
@@ -44,7 +44,7 @@ export const OtherNavBar = () => {
               </a>
             </nav>
           </div>
-          <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+          <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end justify-center">
             <a
               href={process.env.REACT_APP_BASE_URL+"/cadastro"}
               className="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900 dark:text-white dark:hover:text-indigo-300"

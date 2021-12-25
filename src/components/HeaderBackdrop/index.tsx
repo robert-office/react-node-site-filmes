@@ -40,7 +40,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
           <>
             <Skeleton
               variant="rectangular"
-              height={192}
+              height={200}
               className="w-full rounded-t-lg shadow-md object-cover object-center"
             />
           </>
@@ -49,7 +49,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
             
             <img
               style={{zIndex: "1"}}
-              className="h-48 w-full rounded-t-lg shadow-md object-cover object-center"
+              className="h-52 w-full rounded-t-lg shadow-md object-cover object-center"
               src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
               alt="imgPoster"
             />
