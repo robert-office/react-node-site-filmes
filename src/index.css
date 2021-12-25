@@ -71,9 +71,9 @@
 
 @keyframes neon {
     from {
-        filter: drop-shadow(0 0 2px var(---cor-neon));
+        filter: drop-shadow(0 0 0px var(---cor-neon));
     }
     to {
-        filter: drop-shadow(0 0 10px var(---cor-neon));
+        filter: drop-shadow(0 0 3px var(---cor-neon));
     }
 }

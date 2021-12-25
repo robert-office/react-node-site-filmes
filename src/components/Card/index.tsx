@@ -11,7 +11,7 @@ type Props = {
 export const Card = ({ card }: Props) => {
   return (
     <div
-      className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto grow shadow-xl group"
+      className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto shadow-xl group overflow-hidden"
 
       id={String(card.id)}
       style={{ minWidth: "120px" }}
@@ -34,7 +34,7 @@ export const Card = ({ card }: Props) => {
             </>
           ) : (
             <img
-              className="object-cover w-full overflow-hidden rounded-t-lg bg-indigo-600"
+              className="object-cover w-full overflow-hidden rounded-t-lg bg-indigo-600 grow"
               style={{ minHeight: "300px", maxHeight: "300px" }}
               alt="PostImage"
               src={"https://image.tmdb.org/t/p/w300" + card.poster_path}

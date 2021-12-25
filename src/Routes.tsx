@@ -18,6 +18,7 @@ function Routes() {
                 <Home />
             </Route>
 
+            { /* DASHBOARD */ }
             <Route path="/dashboard" exact>
                 <DashboardHomePage />
             </Route>
@@ -34,7 +35,7 @@ function Routes() {
                 <DashboardWatchlistPage />
             </Route>
 
-
+            { /* CADASTRO E LOGIN */ }
             <Route path="/cadastro" exact>
                 <Cadastro />
             </Route>
@@ -42,11 +43,12 @@ function Routes() {
                 <Login />
             </Route>
 
+            { /* PAGINA DE DETALHAMENTO DO FILME/SERIE */ }
             <Route path="/detalhes/:search/:id" exact>
                 <Detalhes />
             </Route>
                 
-            
+            { /* PAGINA COM PAGINAMENTO DE CONTEUDO DE SERIES OU FILMES */ }
             <Route path="/todos/:content" exact>
                 <Todos/>
             </Route>

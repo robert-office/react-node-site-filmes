@@ -1,10 +1,11 @@
 
+
 export const OtherNavBar = () => {
   return (
     <>
       {/* Section 1 */}
-      <section className="w-full px-8 text-gray-700 bg-white dark:bg-gray-800">
-        <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
+      <section className="w-full px-2 md:px-0 text-gray-700 bg-white dark:bg-gray-800">
+        <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-6xl px-8 xl:px-5">
           <div className="relative flex flex-col md:flex-row">
             <a
               href={process.env.REACT_APP_BASE_URL}

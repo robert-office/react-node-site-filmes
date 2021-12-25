@@ -13,19 +13,19 @@ export const LocalSwipper = class Grid extends React.Component {
   render() {
     return (
       <Swiper
-        slidesPerView={1}
-        spaceBetween={20}
+        slidesPerView={2}
+        spaceBetween={5}
         loop={true}
 
         breakpoints={{
           490: {
             slidesPerView: 3,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
 
           750: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
 
           980: {
@@ -39,7 +39,7 @@ export const LocalSwipper = class Grid extends React.Component {
           },
 
           1600: {
-            slidesPerView: 7,
+            slidesPerView: 6,
             spaceBetween: 20,
           },
         }}
@@ -49,7 +49,7 @@ export const LocalSwipper = class Grid extends React.Component {
         grabCursor={true}
       >
         {this.props.children}
-      </Swiper>
+      </Swiper >
     );
   }
 };

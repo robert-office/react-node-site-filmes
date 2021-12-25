@@ -36,7 +36,7 @@ export const Detalhes = () => {
         /// então agente só seta pra primeira correspondencia 
         /// que mais parece com a string do nome do filme
         data.data.results.map(movie => {
-          if( String(movie.id) === id ){
+          if (String(movie.id) === id) {
             correctMovie = movie;
           }
         })
@@ -49,17 +49,15 @@ export const Detalhes = () => {
 
   return (
     <>
-      <>
-        <OtherNavBar />
-        <BodyDetalhes>
-          <HeaderBackdrop alldata={Infos} />
-          <TraillersLocal alldata={Infos} />
-          <Similar alldata={Infos} />
-          <RecomendedToThis alldata={Infos} />
-          <ReviewsLocal alldata={Infos} />
-        </BodyDetalhes>
-        <Footer />
-      </>
+      <OtherNavBar />
+      <BodyDetalhes>
+        <HeaderBackdrop alldata={Infos} />
+        <TraillersLocal alldata={Infos} />
+        <Similar alldata={Infos} />
+        <RecomendedToThis alldata={Infos} />
+        <ReviewsLocal alldata={Infos} />
+      </BodyDetalhes>
+      <Footer />
     </>
   );
 };

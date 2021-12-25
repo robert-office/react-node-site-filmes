@@ -1,9 +1,10 @@
 const Footer = () => {
+  
   return (
     <>
       {/* Section 1 */}
-      <section className="text-gray-700 bg-white dark:bg-gray-800 body-font">
-        <div className="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
+      <section className="text-gray-700 bg-white dark:bg-gray-800 body-font px-2 md:px-0">
+        <div className="container flex flex-col items-center py-8 sm:flex-row max-w-6xl px-8 xl:px-5 mx-auto">
           <a
             href="#_"
             className="text-xl font-black leading-none text-gray-900 dark:text-gray-50 select-none logo"
