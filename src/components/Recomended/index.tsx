@@ -5,6 +5,7 @@ import { SwiperSlide } from "swiper/react";
 import { LocalSwipper } from "components/LocalSwipper";
 import { getRecomendedMoviesController } from "backend/controllers/external-api/getRecomendedMoviesController";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
+import { Skeleton } from "@mui/material";
 
 export const Recomendeds = () => {
   const [cards, setCards] = useState<ApiExternalResponse>({
@@ -39,15 +40,27 @@ export const Recomendeds = () => {
           <Label envolviment={envolviment} />
 
           {/* Local Cards */}
-            <LocalSwipper>
-            {cards.results.map((card) => {
+          <LocalSwipper>
+            {cards.results.length > 1 ? (
+              cards.results.map((card) => {
                 return (
-                  <SwiperSlide key={`recomend_${String(Math.random() * 1000)}`}>
+                  <SwiperSlide key={`recomended_${String(Math.random() * 1000)}`}>
                     <Card card={card} />
                   </SwiperSlide>
                 );
-              })}
-            </LocalSwipper>
+              })
+            ) :
+              <>
+                <div className="flex flex-row justify-between">
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                </div>
+              </>
+            }
+          </LocalSwipper>
         </div>
       </section>
     </>

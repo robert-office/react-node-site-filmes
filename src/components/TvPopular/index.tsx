@@ -6,6 +6,7 @@ import { SwiperSlide } from "swiper/react";
 import { getPopularTvController } from "backend/controllers/external-api/getPopularTvController";
 import { Card } from "components/Card";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
+import { Skeleton } from "@mui/material";
 
 export const TvPopular = () => {
   const [cards, setCards] = useState<ApiExternalResponse>({
@@ -38,15 +39,25 @@ export const TvPopular = () => {
 
           {/* Local Cards */}
           <LocalSwipper>
-            {cards.results.map((card) => {
-              return (
-                <SwiperSlide
-                  key={`tv_popular_${String(Math.random() * 1000)}`}
-                >
-                  <Card card={card} />
-                </SwiperSlide>
-              );
-            })}
+            {cards.results.length > 1 ? (
+              cards.results.map((card) => {
+                return (
+                  <SwiperSlide key={`tv_popular_${String(Math.random() * 1000)}`}>
+                    <Card card={card} />
+                  </SwiperSlide>
+                );
+              })
+            ) :
+              <>
+                <div className="flex flex-row justify-between">
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                </div>
+              </>
+            }
           </LocalSwipper>
         </div>
       </section>

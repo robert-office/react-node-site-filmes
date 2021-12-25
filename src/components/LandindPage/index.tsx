@@ -22,7 +22,7 @@ export const LandindPage = () => {
                 </p>
                 <div className="relative flex flex-col sm:flex-row sm:space-x-4">
                   <a
-                    href={process.env.REACT_APP_BASE_URL+"/login"}
+                    href={process.env.REACT_APP_BASE_URL + "/login"}
                     className="primaryNonDarkColorButton w-full sm:w-auto"
                   >
                     Logar-se
@@ -41,7 +41,7 @@ export const LandindPage = () => {
                     </svg>
                   </a>
                   <a
-                    href={process.env.REACT_APP_BASE_URL+"/cadastro"}
+                    href={process.env.REACT_APP_BASE_URL + "/cadastro"}
                     className="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
                   >
                     Cadastrar-se
@@ -49,7 +49,6 @@ export const LandindPage = () => {
                 </div>
               </div>
             </div>
-
             <div className="w-full md:w-1/2">
               <div className="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
                 <img className="h-full w-full" src={imageLanding} alt="img" />

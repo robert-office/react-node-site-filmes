@@ -7,6 +7,7 @@ import {
   ApiExternalResults,
 } from "backend/types/ApiExternalResponse";
 import { getRecomendedToThisController } from "backend/controllers/external-api/getRecomendedToThisController";
+import { Skeleton } from "@mui/material";
 
 type Props = {
   alldata: ApiExternalResults;
@@ -32,27 +33,31 @@ export const RecomendedToThis = ({ alldata }: Props) => {
       {/* Section */}
       <section className="bg-bgColor dark:bg-gray-700">
         <div className="w-full px-5 py-6 mx-auto space-y-5 my-4 max-w-7xl">
-          {cards.results.length < 1 ? (
-            <>{/* NÃO HÁ SIMILARES NO MOMENTO */}</>
-          ) : (
-            <>
-              <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left dark:text-gray-50">
-                Recomendados para quem viu esse
-              </h2>
-              {/* Local Cards */}
-              <LocalSwipper>
-                {cards.results.map((card) => {
-                  return (
-                    <SwiperSlide
-                      key={`similares_${String(Math.random() * 1000)}`}
-                    >
-                      <Card card={card} />
-                    </SwiperSlide>
-                  );
-                })}
-              </LocalSwipper>
-            </>
-          )}
+          <h2 className="font-extrabold leading-5 tracking-tight text-sm text-center sm:text-left dark:text-gray-50">
+            Recomendados para quem viu esse
+          </h2>
+          {/* Local Cards */}
+          <LocalSwipper>
+            {cards.results.length > 1 ? (
+              cards.results.map((card) => {
+                return (
+                  <SwiperSlide key={`recomended_to_this_${String(Math.random() * 1000)}`}>
+                    <Card card={card} />
+                  </SwiperSlide>
+                );
+              })
+            ) :
+              <>
+                <div className="flex flex-row justify-between">
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                </div>
+              </>
+            }
+          </LocalSwipper>
         </div>
       </section>
     </>

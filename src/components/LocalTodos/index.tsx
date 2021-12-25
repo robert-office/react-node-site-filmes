@@ -1,3 +1,4 @@
+import { Skeleton } from "@mui/material";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
 import { Card } from "components/Card";
 import PaginationLink from "components/PaginationLink/PaginationLink";
@@ -40,18 +41,36 @@ export const LocalTodos = ({ content }: Props) => {
           </span>
         </div>
         <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-5 sm:grid-cols-4 grid-cols-2 gap-x-6 gap-y-12 w-full mt-6">
-          {alldata.results.map((card) => {
-            return (
-              <>
-                <div className="w-full h-full relative flex flex-col">
-                  <Card card={card} />
-                  <p className="text-center text-base font-semibold mt-4 dark:text-gray-50">
-                    {card.name || card.title}
-                  </p>
-                </div>
-              </>
-            );
-          })}
+
+          {alldata.results.length > 1 ? (
+            alldata.results.map((card) => {
+              return (
+                <>
+                  <div className="w-full h-full relative flex flex-col">
+                    <Card card={card} />
+                    <p className="text-center text-base font-semibold mt-4 dark:text-gray-50">
+                      {card.name || card.title}
+                    </p>
+                  </div>
+                </>
+              );
+            })
+          ) : (
+            <>
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+              <Skeleton variant="rectangular" height={290} />
+            </>
+          )}
         </div>
         <div className="flex justify-center mt-8">
           {!!alldata.total_pages ? (
