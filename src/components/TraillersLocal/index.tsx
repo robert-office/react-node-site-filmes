@@ -42,10 +42,10 @@ export const TraillersLocal = ({ alldata }: Props) => {
             ) : (
               <>
                 <SwiperSlide key={`trailler_${String(Math.random() * 1000)}`}>
-                  <Skeleton variant="rectangular" height={290} />
+                  <Skeleton variant="rectangular" height={384} />
                 </SwiperSlide>
                 <SwiperSlide key={`trailler_${String(Math.random() * 1000)}`}>
-                  <Skeleton variant="rectangular" height={290} />
+                  <Skeleton variant="rectangular" height={384} />
                 </SwiperSlide>
               </>
             )}
