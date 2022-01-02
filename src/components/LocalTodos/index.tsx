@@ -1,6 +1,6 @@
 import { Skeleton } from "@mui/material";
 import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
-import { Card } from "components/Card";
+import Card  from "components/Card";
 import PaginationLink from "components/PaginationLink/PaginationLink";
 import { SetStateAction, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

@@ -1,4 +1,4 @@
-import { Card } from "components/Card";
+import Card  from "components/Card";
 import { useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
 import { LocalSwipper } from "components/LocalSwipper";

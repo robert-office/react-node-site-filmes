@@ -2,13 +2,14 @@ import { IconButton, ImageListItemBar, Rating, Skeleton } from "@mui/material";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
+import { memo } from 'react';
 import "./styles.css";
 
 type Props = {
   card: ApiExternalResults;
 };
 
-export const Card = ({ card }: Props) => {
+const Card = ({ card }: Props) => {
   return (
     <div
       className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto shadow-xl group overflow-hidden"
@@ -108,3 +109,5 @@ export const Card = ({ card }: Props) => {
     </div>
   );
 };
+
+export default memo(Card);

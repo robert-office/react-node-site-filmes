@@ -1,12 +1,8 @@
 import "./style.css";
-
-
 import DarkModeIcon from '@material-ui/icons/NightsStay';
 import LightModeIcon from '@mui/icons-material/LightMode';
-
 import SearchIcon from '@material-ui/icons/Search';
 import { useEffect, useState } from "react";
-import { color } from "@mui/system";
 
 export const OtherNavBar = () => {
 
