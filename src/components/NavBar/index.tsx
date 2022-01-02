@@ -2,25 +2,22 @@ import "./style.css";
 import DarkModeIcon from '@material-ui/icons/NightsStay';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import SearchIcon from '@material-ui/icons/Search';
-import { useEffect, useState } from "react";
+import usePersistedState from "utils/usePersistedState";
+import React, { useEffect } from "react";
 
 export const OtherNavBar = () => {
+  
+  const [themeDark, setthemeDark] = usePersistedState('theme', false);
 
-  function setSwitch() {
+  function setTheme() {
     const html = document.querySelector("html")!;
 
-    (!btnSwitch) ? html.classList.add("dark") : html.classList.remove("dark");
+    (!themeDark) ? html.classList.remove("dark") : html.classList.add("dark");
   }
 
-  function changeMode(mode: boolean) {
-    console.log(mode);
-  }
-
-  const [btnSwitch, setBtnSwitch] = useState(false);
-
-  useEffect(() => {
-    changeMode(btnSwitch);
-  }, [btnSwitch]);
+  useEffect(()=> {
+    setTheme();
+  }, [themeDark])
 
   return (
     <>
@@ -95,9 +92,8 @@ export const OtherNavBar = () => {
 
           <div className="flex flex-row items-center">
 
-            <input type="checkbox" name="checkboxDarkMode" value="" id="checkbox" className="hidden" onChange={(e) => {
-              setBtnSwitch(e.target.checked);
-              setSwitch();
+            <input type="checkbox" name="checkboxDarkMode" checked={themeDark} id="checkbox" className="hidden" onChange={(e) => {
+              setthemeDark(e.target.checked);
             }} />
             <label htmlFor="checkbox" className="cursor-pointer">
               <div className="w-9 h-5 flex items-center bg-gray-300 rounded-full p2">
@@ -105,7 +101,7 @@ export const OtherNavBar = () => {
               </div>
             </label>
 
-            {!btnSwitch ? (
+            {!themeDark ? (
               <LightModeIcon className="bg-white rounded-full p-1 ml-1" />
             ) : (
               <DarkModeIcon className="bg-white rounded-full p-1 ml-1" />
