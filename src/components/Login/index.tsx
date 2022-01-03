@@ -1,6 +1,23 @@
+import { useContext, useEffect } from "react";
+import { login } from "utils/storeUser";
+import { UserContext } from "utils/userContext";
 import svg from "../../assets/images/svgs/assistindoNoite.svg";
 
 export const LoginForm = () => {
+
+  /// user context
+  const { value, setValue } = useContext(UserContext);
+
+  const clickLogin = async () => {
+    const result = await login();
+
+    setValue(result);
+  }
+
+  useEffect( () => {
+    console.log(value);
+  }, [value] );
+
   return (
     <>
       {/* Section 1 */}
@@ -14,7 +31,7 @@ export const LoginForm = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full bg-white dark:bg-gray-700 lg:w-6/12 xl:w-5/12">
+            <div className="w-full bg-white dark:bg-gray-800 lg:w-6/12 xl:w-5/12">
               <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
                 <h4 className="w-full text-3xl font-bold my-2 lg:text-left text-center dark:text-gray-50">Login</h4>
                 <p className="text-lg text-gray-500 dark:text-gray-200">
@@ -44,12 +61,12 @@ export const LoginForm = () => {
                     />
                   </div>
                   <div className="relative">
-                    <a
-                      href="#_"
+                    <button
+                      onClick={clickLogin}
                       className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-indigo-600 rounded-lg hover:bg-blue-700 ease"
                     >
                       Login
-                    </a>
+                    </button>
                     <a
                       href="#_"
                       className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"

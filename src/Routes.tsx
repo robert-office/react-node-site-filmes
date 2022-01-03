@@ -1,3 +1,4 @@
+import { UserContextComponent } from "components/UserContext";
 import Cadastro from "pages/cadastro";
 import { DashboardFavoritesPage } from "pages/dashboardFavoritesPage";
 import { DashboardHomePage } from "pages/dashboardHomePage";
@@ -8,56 +9,58 @@ import Home from "pages/Home";
 import Login from "pages/login";
 import { My404 } from "pages/My40/My404";
 import Todos from "pages/todos";
-import {  BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function Routes() {
     return (
-      <BrowserRouter>
-        <Switch>
-            <Route path="/" exact>
-                <Home />
-            </Route>
+        <UserContextComponent>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/" exact>
+                        <Home />
+                    </Route>
 
-            { /* DASHBOARD */ }
-            <Route path="/dashboard" exact>
-                <DashboardHomePage />
-            </Route>
+                    { /* DASHBOARD */}
+                    <Route path="/dashboard" exact>
+                        <DashboardHomePage />
+                    </Route>
 
-            <Route path="/dashboard/settings" exact>
-                <DashboardSettingsPage />
-            </Route>
+                    <Route path="/dashboard/settings" exact>
+                        <DashboardSettingsPage />
+                    </Route>
 
-            <Route path="/dashboard/favorites" exact>
-                <DashboardFavoritesPage />
-            </Route>
+                    <Route path="/dashboard/favorites" exact>
+                        <DashboardFavoritesPage />
+                    </Route>
 
-            <Route path="/dashboard/watchlist" exact>
-                <DashboardWatchlistPage />
-            </Route>
+                    <Route path="/dashboard/watchlist" exact>
+                        <DashboardWatchlistPage />
+                    </Route>
 
-            { /* CADASTRO E LOGIN */ }
-            <Route path="/cadastro" exact>
-                <Cadastro />
-            </Route>
-            <Route path="/login" exact>
-                <Login />
-            </Route>
+                    { /* CADASTRO E LOGIN */}
+                    <Route path="/cadastro" exact>
+                        <Cadastro />
+                    </Route>
+                    <Route path="/login" exact>
+                        <Login />
+                    </Route>
 
-            { /* PAGINA DE DETALHAMENTO DO FILME/SERIE */ }
-            <Route path="/detalhes/:search/:id" exact>
-                <Detalhes />
-            </Route>
-                
-            { /* PAGINA COM PAGINAMENTO DE CONTEUDO DE SERIES OU FILMES */ }
-            <Route path="/todos/:content" exact>
-                <Todos/>
-            </Route>
+                    { /* PAGINA DE DETALHAMENTO DO FILME/SERIE */}
+                    <Route path="/detalhes/:search/:id" exact>
+                        <Detalhes />
+                    </Route>
 
-            {/* ROTA PADRÃO 404 */}
-            <Route path='*' exact={true} component={My404} />
-        </Switch>
-      </BrowserRouter>
+                    { /* PAGINA COM PAGINAMENTO DE CONTEUDO DE SERIES OU FILMES */}
+                    <Route path="/todos/:content" exact>
+                        <Todos />
+                    </Route>
+
+                    {/* ROTA PADRÃO 404 */}
+                    <Route path='*' exact={true} component={My404} />
+                </Switch>
+            </BrowserRouter>
+        </UserContextComponent>
     );
-  }
-  
-  export default Routes;
+}
+
+export default Routes;

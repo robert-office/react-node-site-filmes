@@ -2,11 +2,13 @@ import "./style.css";
 import DarkModeIcon from '@material-ui/icons/NightsStay';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import SearchIcon from '@material-ui/icons/Search';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import usePersistedState from "utils/usePersistedState";
-import React, { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { UserContext } from "utils/userContext";
 
 export const OtherNavBar = () => {
-  
+
   const [themeDark, setthemeDark] = usePersistedState('theme', false);
 
   function setTheme() {
@@ -15,9 +17,12 @@ export const OtherNavBar = () => {
     (!themeDark) ? html.classList.remove("dark") : html.classList.add("dark");
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     setTheme();
-  }, [themeDark])
+  }, [themeDark]);
+
+  /// user context
+  const { value, setValue } = useContext(UserContext)
 
   return (
     <>
@@ -62,20 +67,36 @@ export const OtherNavBar = () => {
               </a>
             </nav>
           </div>
-          <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end justify-center">
-            <a
-              href={process.env.REACT_APP_BASE_URL + "/cadastro"}
-              className="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900 dark:text-white dark:hover:text-indigo-300"
-            >
-              Cadastra-se
-            </a>
-            <a
-              href={process.env.REACT_APP_BASE_URL + "/login"}
-              className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
-            >
-              Logue-se
-            </a>
-          </div>
+
+          { value ? (
+
+            <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end justify-center">
+              <a
+                href={process.env.REACT_APP_BASE_URL + "/cadastro"}
+                className="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900 dark:text-white dark:hover:text-indigo-300"
+              >
+                Cadastra-se
+              </a>
+              <a
+                href={process.env.REACT_APP_BASE_URL + "/login"}
+                className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+              >
+                Logue-se
+              </a>
+            </div>
+
+          ) : (
+
+            <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end justify-center">
+              <a
+                href={process.env.REACT_APP_BASE_URL + "/dashboard"}
+                className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+              >
+                <AccountBoxIcon className="mr-1" />
+                Admin
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="container flex flex-wrap items-center justify-between mx-auto flex-row max-w-6xl px-8 xl:px-5">
@@ -83,28 +104,31 @@ export const OtherNavBar = () => {
             <div className="relative w-full" >
               <input placeholder="Pesquise por filmes ou séries neste campo..."
                 type="text"
-                className="w-full h-full relative border bg-gray-600 border-gray-800 dark:border-white rounded-l-md px-2 text-white" />
+                className="w-full h-full relative border dark:bg-gray-600 bg-gray-100 shadow-xl border-gray-800 dark:border-white rounded-l-md px-2 dark:text-white text-gray-700" />
             </div>
-            <button className="relative dark:bg-white bg-gray-600 border-r border-gray-800 dark:border-white rounded-r-full w-10 p-1 flex items-center">
-              <SearchIcon />
+            <button className="relative dark:bg-white bg-gray-600 border-r border-gray-800 dark:border-white rounded-r-md w-10 p-1 flex items-center">
+              {!themeDark ? (
+                <SearchIcon sx={{ color: 'white' }} />
+              ) : (
+                <SearchIcon />
+              )}
             </button>
           </form>
 
           <div className="flex flex-row items-center">
-
             <input type="checkbox" name="checkboxDarkMode" checked={themeDark} id="checkbox" className="hidden" onChange={(e) => {
               setthemeDark(e.target.checked);
             }} />
-            <label htmlFor="checkbox" className="cursor-pointer">
-              <div className="w-9 h-5 flex items-center bg-gray-300 rounded-full p2">
-                <div className="w-4 h-4 bg-white rounded-full shadow switch-ball"></div>
+            <label htmlFor="checkbox" className="cursor-pointer shadow-xl">
+              <div className="w-9 h-5 flex items-center bg-gray-300 rounded-md p2 shadow-xl">
+                <div className="w-6 h-6 dark:bg-white bg-gray-600 rounded-md shadow switch-ball"></div>
               </div>
             </label>
 
             {!themeDark ? (
-              <LightModeIcon className="bg-white rounded-full p-1 ml-1" />
+              <LightModeIcon className="bg-gray-300 rounded-full p-1 ml-3  shadow-xl" />
             ) : (
-              <DarkModeIcon className="bg-white rounded-full p-1 ml-1" />
+              <DarkModeIcon className="bg-white rounded-full p-1 ml-3  shadow-xl" />
             )}
           </div>
         </div>
