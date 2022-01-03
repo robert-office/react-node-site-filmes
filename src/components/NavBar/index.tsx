@@ -68,7 +68,7 @@ export const OtherNavBar = () => {
             </nav>
           </div>
 
-          { value ? (
+          { value.token == null ? (
 
             <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end justify-center">
               <a

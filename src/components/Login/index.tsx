@@ -24,7 +24,7 @@ export const LoginForm = () => {
       <section className="w-full bg-white dark:bg-gray-800">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col lg:flex-row">
-            <div className="relative w-full bg-cover lg:w-6/12 xl:w-7/12 bg-gradient-to-r">
+            <div className="relative hidden lg:block bg-cover lg:w-6/12 xl:w-7/12 bg-gradient-to-r">
               <div className="relative flex flex-col items-center justify-center w-full h-full px-10 my-10 lg:px-16 lg:my-0">
                 <div className="w-2/3 lg:w-full flex flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
                   <img src={svg} alt="svg" />

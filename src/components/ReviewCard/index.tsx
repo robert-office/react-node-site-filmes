@@ -1,5 +1,6 @@
 import { Rating, Skeleton } from "@mui/material";
 import { ApiExternalResultsReviews } from "backend/services/external-api/getReviewsService";
+import { formatLocalDate } from "utils/format";
 
 type reviewCard = {
   reviewData: ApiExternalResultsReviews;
@@ -44,7 +45,7 @@ export default function ReviewCard({ reviewData }: reviewCard) {
               />
             </div>
             <div className="text-cyan-600 ">{reviewData.author}</div>
-            <div className="text-gray-500 dark:text-gray-50">{reviewData.created_at}</div>
+            <div className="text-gray-500 dark:text-gray-50">{formatLocalDate(  String( reviewData.created_at).slice(0, -14)  , "dd/MM/yyyy")}</div>
           </figcaption>
         </div>
       </figure>
