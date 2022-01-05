@@ -40,7 +40,7 @@ export const LocalTodos = ({ content }: Props) => {
             Foram achados {alldata.total_results} registros
           </span>
         </div>
-        <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-5 sm:grid-cols-4 grid-cols-2 gap-x-6 gap-y-12 w-full mt-6">
+        <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-5 sm:grid-cols-3 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6">
 
           {alldata.results.length > 1 ? (
             alldata.results.map((card) => {
