@@ -92,17 +92,21 @@ export const OtherNavBar = () => {
                 </div>
 
                 {!themeDark ? (
-                    <MenuIcon
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        className="text-white text-3xl cursor-pointer flex lg:hidden"
-                        sx={{ color: 'black' }}
-                        
-                    />
+                    <span className="lg:hidden">
+                        <MenuIcon
+                            onClick={() => setMobileOpen(!mobileOpen)}
+                            className="text-white text-3xl cursor-pointer flex"
+                            sx={{ color: 'black' }}
+
+                        />
+                    </span>
                 ) : (
-                    <MenuIcon
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        className="text-white text-3xl cursor-pointer flex lg:hidden"
-                    />
+                    <span className="lg:hidden">
+                        <MenuIcon
+                            onClick={() => setMobileOpen(!mobileOpen)}
+                            className="text-white text-3xl cursor-pointer flex"
+                        />
+                    </span>
                 )}
 
                 {mobileOpen && (
@@ -162,7 +166,7 @@ export const OtherNavBar = () => {
                     </div>
                 )}
             </div>
-            <nav className="container flex flex-wrap items-center justify-between mx-auto flex-row max-w-6xl px-8 xl:px-5 border-b pb-2">
+            <nav className="container flex flex-wrap items-center justify-between mx-auto flex-row max-w-6xl px-8 xl:px-5">
                 <form className="relative sm:w-4/5 w-3/5 h-12 flex flex-row">
                     <div className="relative w-full" >
                         <input placeholder="Pesquise por filmes ou séries neste campo..."
@@ -194,6 +198,8 @@ export const OtherNavBar = () => {
                         <DarkModeIcon className="bg-white rounded-full p-1 ml-3  shadow-xl" />
                     )}
                 </div>
+
+                <div className="h-0.5 w-full bg-gray-500 rounded-full mt-2 shadow-lg" />
             </nav>
         </>
     )

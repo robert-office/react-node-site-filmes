@@ -4,7 +4,7 @@ export const LandindPage = () => {
   return (
     <>
       {/* Section 1 */}
-      <section className="px-2 pb-8 pt-4 sm:py-32 bg-white dark:bg-gray-800 md:px-0">
+      <section className="px-2 pb-8 pt-14 sm:pt-14 sm:py-32 bg-white dark:bg-gray-800 md:px-0">
         <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
           <div className="flex flex-wrap items-center sm:-mx-3">
             <div className="w-full md:w-1/2 md:px-3">
