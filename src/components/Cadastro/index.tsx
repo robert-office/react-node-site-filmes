@@ -58,7 +58,7 @@ export const CadastroForm = () => {
       setOpenSnack(true);
       setTimeout(() => {
         window.location.href = `${process.env.REACT_APP_BASE_URL}/dashboard`;
-      }, 2000);
+      }, 500);
     }).catch(() => {
       /// error ao cadastrar
       setOpenSnackError(true);

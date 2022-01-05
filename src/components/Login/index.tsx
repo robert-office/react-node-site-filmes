@@ -1,25 +1,98 @@
-import { useContext, useEffect } from "react";
-import { login } from "utils/storeUser";
 import { UserContext } from "utils/userContext";
 import svg from "../../assets/images/svgs/assistindoNoite.svg";
+import { useContext, useState } from "react";
+import { serializeForm } from "utils/serializeForms";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from "@mui/material/Alert";
+import { postLoginController } from "backend/controllers/laravel-api/postLoginController";
 
 export const LoginForm = () => {
 
-  /// user context
+  /// user
   const { value, setValue } = useContext(UserContext);
 
-  const clickLogin = async () => {
-    const result = await login();
+  /// snackbar msg
+  const [openSnack, setOpenSnack] = useState(false);
+  const handleCloseSnackBar = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnack(false);
+  };
 
-    setValue(result);
+  /// snackbar msg ERROR
+  const [openSnackError, setOpenSnackError] = useState(false);
+  const handleCloseSnackBarError = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackError(false);
+  };
+
+  //// loading backdrop
+  const [open, setOpen] = useState(false);
+  const handleLoading = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  /// loga o usuario
+  const logar = (e: any) => {
+    /// previne o padão default que o form reproduz que é o de recarregar a tela
+    e.preventDefault();
+    /// chama o backdrop do loading
+    handleLoading();
+    /// recupera os dados do formulario
+    const form: any = document.querySelector('#form_login')!;
+    var data = serializeForm(form);
+    /// chama o controller do Cadastro
+    const controller = new postLoginController();
+    /// utiliza a função para cadastrar
+    controller.handle(data).then((response) => {
+      /// storing the user
+      setValue(response.data);
+      setOpenSnack(true);
+      setTimeout(() => {
+        window.location.href = `${process.env.REACT_APP_BASE_URL}/dashboard`;
+      }, 500);
+    }).catch(() => {
+      /// error ao cadastrar
+      setOpenSnackError(true);
+    }).finally(() => {
+      /// fecha o loading backdrop
+      handleClose();
+    });
   }
-
-  useEffect( () => {
-    console.log(value);
-  }, [value] );
 
   return (
     <>
+      {/* backdrop Loading  */}
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+      { /* snackBar msg */}
+      <Snackbar open={openSnack} autoHideDuration={6000} onClose={handleCloseSnackBar}>
+        <Alert onClose={handleCloseSnackBar} severity="success" sx={{ width: '100%' }}>
+          Login Realizado com Sucesso!!
+        </Alert>
+      </Snackbar>
+
+      { /* snackBar msg Error */}
+      <Snackbar open={openSnackError} autoHideDuration={6000} onClose={handleCloseSnackBarError}>
+        <Alert onClose={handleCloseSnackBarError} severity="error" sx={{ width: '100%' }}>
+          Falha ao Logar, reveja suas credenciais!!
+        </Alert>
+      </Snackbar>
+
+
       {/* Section 1 */}
       <section className="w-full bg-white dark:bg-gray-800">
         <div className="mx-auto max-w-7xl">
@@ -31,7 +104,7 @@ export const LoginForm = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full bg-white dark:bg-gray-800 lg:w-6/12 xl:w-5/12">
+            <form id="form_login" className="w-full bg-white dark:bg-gray-800 lg:w-6/12 xl:w-5/12" onSubmit={(e) => logar(e)}>
               <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
                 <h4 className="w-full text-3xl font-bold my-2 lg:text-left text-center dark:text-gray-50">Login</h4>
                 <p className="text-lg text-gray-500 dark:text-gray-200">
@@ -46,7 +119,9 @@ export const LoginForm = () => {
                   <div className="relative">
                     <label className="font-medium text-gray-900 dark:text-gray-50">Email</label>
                     <input
-                      type="text"
+                      name="email"
+                      id="email"
+                      type="email"
                       className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                       placeholder="Coloque Seu Endereço De Email"
                     />
@@ -55,6 +130,8 @@ export const LoginForm = () => {
                   <div className="relative">
                     <label className="font-medium text-gray-900 dark:text-gray-50">Senha</label>
                     <input
+                      name="password"
+                      id="password"
                       type="password"
                       className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                       placeholder="Coloque Sua Senha"
@@ -62,7 +139,7 @@ export const LoginForm = () => {
                   </div>
                   <div className="relative">
                     <button
-                      onClick={clickLogin}
+                      type="submit"
                       className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-indigo-600 rounded-lg hover:bg-blue-700 ease"
                     >
                       Login
@@ -76,7 +153,7 @@ export const LoginForm = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
