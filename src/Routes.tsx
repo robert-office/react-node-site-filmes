@@ -1,3 +1,4 @@
+import ProtectedRoute from "components/ProtectedRoute";
 import { UserContextComponent } from "components/UserContext";
 import Cadastro from "pages/cadastro";
 import { DashboardFavoritesPage } from "pages/dashboardFavoritesPage";
@@ -21,21 +22,22 @@ function Routes() {
                     </Route>
 
                     { /* DASHBOARD */}
-                    <Route path="/dashboard" exact>
+                    <ProtectedRoute path="/dashboard" exact>
                         <DashboardHomePage />
-                    </Route>
+                    </ProtectedRoute>
 
-                    <Route path="/dashboard/settings" exact>
+
+                    <ProtectedRoute path="/dashboard/settings" exact>
                         <DashboardSettingsPage />
-                    </Route>
+                    </ProtectedRoute>
 
-                    <Route path="/dashboard/favorites" exact>
+                    <ProtectedRoute path="/dashboard/favorites" exact>
                         <DashboardFavoritesPage />
-                    </Route>
+                    </ProtectedRoute>
 
-                    <Route path="/dashboard/watchlist" exact>
+                    <ProtectedRoute path="/dashboard/watchlist" exact>
                         <DashboardWatchlistPage />
-                    </Route>
+                    </ProtectedRoute>
 
                     { /* CADASTRO E LOGIN */}
                     <Route path="/cadastro" exact>
