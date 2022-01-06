@@ -39,7 +39,7 @@ export const MoviePopular = () => {
           {/* Local Cards */}
           <LocalSwipper>
             {cards.results.length > 1 ? (
-              cards.results.map((card) => {
+              cards.results.slice(0, 10).map((card) => {
                 return (
                   <SwiperSlide key={`popular_${String(Math.random() * 1000)}`}>
                     <Card card={card} />

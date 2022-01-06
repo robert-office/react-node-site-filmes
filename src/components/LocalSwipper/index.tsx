@@ -43,6 +43,8 @@ export const LocalSwipper = class Grid extends React.Component {
             spaceBetween: 20,
           },
         }}
+        pagination={true}
+        navigation={true}
         observer={true}
         observeParents={true}
         className="mySwiper"
