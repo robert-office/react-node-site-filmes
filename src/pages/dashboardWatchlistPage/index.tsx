@@ -4,12 +4,8 @@ import { OtherNavBar } from "components/NavBar";
 
 export const DashboardWatchlistPage = () => {
     return (
-        <>
-        <OtherNavBar/>
-            <DashboardContainer>
-                <h1> WATCHLIST </h1>
-            </DashboardContainer>
-        <Footer/>
-        </>
+        <DashboardContainer>
+            <h1> WATCHLIST </h1>
+        </DashboardContainer>
     );
 }
