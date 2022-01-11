@@ -15,7 +15,7 @@ const Card = ({ card }: Props) => {
       className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto shadow-xl group overflow-hidden"
 
       id={String(card.id)}
-      style={{ minWidth: "120px" }}
+      style={{ minWidth: "120px", minHeight: "252px" }}
     >
       <div className="relative rounded-t-lg h-auto pb-0">
         <a
@@ -29,14 +29,13 @@ const Card = ({ card }: Props) => {
             <>
               <div>
                 <Skeleton variant="text" width={'100%'} />
-                <Skeleton width={'100%'} variant="rectangular" height={252} />
+                <Skeleton width={'100%'} variant="rectangular" className="h-full sm:h-72" />
                 <Skeleton variant="text" width={'100%'} />
               </div>
             </>
           ) : (
             <img
-              className="object-cover w-full overflow-hidden rounded-t-lg bg-indigo-600 grow"
-              style={{ minHeight: "300px", maxHeight: "300px" }}
+              className="object-cover w-full overflow-hidden rounded-t-lg bg-indigo-600 grow h-full sm:h-72"
               alt="PostImage"
               src={"https://image.tmdb.org/t/p/w300" + card.poster_path}
             />

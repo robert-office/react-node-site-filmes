@@ -13,7 +13,7 @@ export const LocalSwipper = class Grid extends React.Component {
   render() {
     return (
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={5}
         loop={true}
 

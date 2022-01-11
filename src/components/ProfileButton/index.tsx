@@ -6,10 +6,12 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import FaceIcon from '@mui/icons-material/Face';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 export default function ProfileButton() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -72,15 +74,31 @@ export default function ProfileButton() {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem>
-                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard`}>
+                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard`} className='flex align-middle'>
                         <ListItemIcon>
-                            <PersonAdd fontSize="small" />
+                            <DashboardIcon fontSize="small" />
                         </ListItemIcon>
-                        Admin
+                        Dashboard
                     </a>
                 </MenuItem>
                 <MenuItem>
-                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard`}>
+                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard/favorites`} className='flex align-middle'>
+                        <ListItemIcon>
+                            <FavoriteIcon fontSize="small" />
+                        </ListItemIcon>
+                        Favorites
+                    </a>
+                </MenuItem>
+                <MenuItem>
+                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard/watchlist`} className='flex align-middle'>
+                        <ListItemIcon>
+                            <BookmarksIcon fontSize="small" />
+                        </ListItemIcon>
+                        WatchList
+                    </a>
+                </MenuItem>
+                <MenuItem>
+                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard/settings`} className='flex align-middle'>
                         <ListItemIcon>
                             <Settings fontSize="small" />
                         </ListItemIcon>
@@ -88,7 +106,7 @@ export default function ProfileButton() {
                     </a>
                 </MenuItem>
                 <MenuItem>
-                    <a href={`${process.env.REACT_APP_BASE_URL}/dashboard`}>
+                    <a href={`${process.env.REACT_APP_BASE_URL}/logout`} className='flex align-middle'>
                         <ListItemIcon>
                             <Logout fontSize="small" />
                         </ListItemIcon>
