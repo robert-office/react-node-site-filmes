@@ -35,7 +35,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
       ! movie/tv banner and avatar
       ! ------------------------------------------------------------
       */}
-      <div className="relative w-full dark:bg-gray-700">
+      <div className="relative w-full dark:bg-gray-700 rounded-t-lg">
         {!alldata.backdrop_path ? (
           <>
             <Skeleton

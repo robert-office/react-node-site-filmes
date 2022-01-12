@@ -1,3 +1,4 @@
+import { DashboardBackdrop } from "components/DashboardBackdrop";
 import { DashboardContainer } from "components/DashboardContainer";
 
 export const DashboardHomePage = () => {
@@ -5,7 +6,7 @@ export const DashboardHomePage = () => {
         <>
             <DashboardContainer>
                 
-                
+                <DashboardBackdrop/>
 
 
 

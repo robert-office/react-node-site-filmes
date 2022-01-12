@@ -9,7 +9,7 @@ export class DashboardContainer extends React.Component {
                 <OtherNavBar />
                 <div className="w-full mt-2 px-2 md:px-0">
                     <div className="max-w-6xl px-8 xl:px-5 mx-auto">
-                        <section className="mt-1 dark:bg-gray-700 bg-gray-100 rounded p-1">
+                        <section className="mt-1">
                             {this.props.children}
                         </section>
                     </div>
