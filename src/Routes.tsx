@@ -8,6 +8,7 @@ import { DashboardWatchlistPage } from "pages/dashboardWatchlistPage";
 import { Detalhes } from "pages/detalhes";
 import Home from "pages/Home";
 import Login from "pages/login";
+import { LogoutPage } from "pages/LogoutPage";
 import { My404 } from "pages/My40/My404";
 import Todos from "pages/todos";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -25,7 +26,6 @@ function Routes() {
                     <ProtectedRoute path="/dashboard" exact>
                         <DashboardHomePage />
                     </ProtectedRoute>
-
 
                     <ProtectedRoute path="/dashboard/settings" exact>
                         <DashboardSettingsPage />
@@ -46,6 +46,12 @@ function Routes() {
                     <Route path="/login" exact>
                         <Login />
                     </Route>
+
+                    { /* logout */ }
+
+                    <ProtectedRoute path="/logout" exact>
+                        <LogoutPage />
+                    </ProtectedRoute>
 
                     { /* PAGINA DE DETALHAMENTO DO FILME/SERIE */}
                     <Route path="/detalhes/:search/:id" exact>

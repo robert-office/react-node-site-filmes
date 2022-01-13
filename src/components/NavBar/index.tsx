@@ -155,12 +155,21 @@ export const OtherNavBar = () => {
                                 </>
 
                             ) : (
-                                <a
-                                    href={process.env.REACT_APP_BASE_URL + "/dashboard"}
-                                    className="pb-2 w-full h-full text-center border-b border-gray-200 dark:border-white no-underline px-2 my-2 text-gray-600 dark:text-white dark:hover:text-indigo-300 font-medium hover:text-indigo-600"
-                                >
-                                    Conta
-                                </a>
+                                <>
+                                    <a
+                                        href={process.env.REACT_APP_BASE_URL + "/dashboard"}
+                                        className="pb-2 w-full h-full text-center border-b border-gray-200 dark:border-white no-underline px-2 my-2 text-gray-600 dark:text-white dark:hover:text-indigo-300 font-medium hover:text-indigo-600"
+                                    >
+                                        Conta
+                                    </a>
+
+                                    <a
+                                        href={process.env.REACT_APP_BASE_URL + "/logout"}
+                                        className="pb-2 w-full h-full text-center border-b border-gray-200 dark:border-white no-underline px-2 mt-2 text-gray-600 dark:text-white dark:hover:text-indigo-300 font-medium hover:text-indigo-600"
+                                    >
+                                        Logout
+                                    </a>
+                                </>
                             )}
                         </div>
                     </div>
