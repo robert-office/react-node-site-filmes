@@ -7,6 +7,7 @@ export type ApiExternalResponse = {
   total_results: number;  
 };
 
+
 export type ApiExternalResults = {
   backdrop_path?: string;
   first_air_date?: string;
@@ -25,3 +26,16 @@ export type ApiExternalResults = {
   genre_ids?: Genre[];
   media_type: string;
 };
+
+export type LaravelResponseContent = {
+  lenght?: number,
+  contents: content[]
+}
+
+export type content = {
+  id? : string,
+  id_movie? : string,
+  name? : string,
+  title? : string,
+  poster_path? : string
+}

@@ -15,7 +15,6 @@ export const LocalSwipper = class Grid extends React.Component {
       <Swiper
         slidesPerView={1}
         spaceBetween={5}
-        loop={true}
 
         breakpoints={{
           490: {

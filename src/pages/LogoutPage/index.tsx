@@ -65,7 +65,6 @@ export const LogoutPage = () => {
 
     return (
         <>
-
             {/* backdrop Loading  */}
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

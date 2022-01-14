@@ -1,0 +1,7 @@
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+.card {
+    ---cor-neon: rgba(79, 70, 229, 1);
+    animation: neon 3s alternate infinite ease-in-out;
+}
