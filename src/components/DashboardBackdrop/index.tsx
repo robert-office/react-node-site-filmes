@@ -40,15 +40,15 @@ export const DashboardBackdrop = () => {
         <section className="relative w-full dark:bg-gray-700 bg-gray-100 rounded-t-lg">
             <img
                 style={{ zIndex: "1" }}
-                className="h-20 w-full rounded-t-lg shadow-md object-cover object-center"
+                className="h-40 w-full rounded-t-lg shadow-md object-cover object-center"
                 src={imageBackdrop}
                 alt="imgPoster"
             />
-            <div className="absolute -mt-10 w-full z-10 flex flex-col sm:flex-row sm:justify-between">
+            <div className="absolute -mt-20 w-full z-10 flex flex-col sm:flex-row sm:justify-between">
                 <div className='relative sm:w-1/4 w-full flex justify-center sm:block'>
-                    <div className='relative w-20 h-20 bg-gray-200 rounded-full sm:ml-6'></div>
+                    <div className='relative w-40 h-40 bg-gray-200 rounded-full sm:ml-6'></div>
                 </div>
-                <div className='sm:flex hidden w-3/4 h-full mt-11 p-2'>
+                <div className='sm:flex hidden w-3/4 h-full mt-24 p-2'>
                     <h2 className='font-extrabold tracking-tight dark:text-gray-100 text-gray-600 text-xl ml-auto mr-3'> Olá, seja bem vindo, {value.user.name} </h2>
                 </div>
             </div>
@@ -92,9 +92,6 @@ export const DashboardBackdrop = () => {
                     )
                 })}
             </section>
-
-            
-
         </section >
     );
 }

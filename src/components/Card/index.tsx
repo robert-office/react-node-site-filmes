@@ -4,12 +4,37 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import { memo } from 'react';
 import "./styles.css";
+import { postFavoriteController } from "backend/controllers/laravel-api/postFavoriteController";
 
 type Props = {
   card: ApiExternalResults;
 };
 
 const Card = ({ card }: Props) => {
+
+  const user = localStorage.getItem('user');
+  const userJson = JSON.parse(user!);
+  const userToken = userJson.token;
+
+  function favoritarHandle( id_movie: number, name: string, title: string, poster_path: string ) {
+    let data = {
+      id_movie:       id_movie,
+      name:           name,
+      title:          title,
+      poster_path:   poster_path
+    };
+
+    let dataString = JSON.stringify(data);
+
+    const controller = new postFavoriteController();
+
+    controller.handle(dataString, userToken).then((response) => {
+      controller.choice(response.data.response, dataString, userToken).then((response) => {
+        window.alert(response.data.message);
+      });
+    })
+  }
+
   return (
     <div
       className="relative flex flex-col justify-between primaryNonDarkColorBorder rounded-t-lg card h-auto shadow-xl group overflow-hidden"
@@ -62,7 +87,7 @@ const Card = ({ card }: Props) => {
           subtitle={
             <div className=" flex justify-between opacity-100">
               <IconButton
-                onClick={() => window.alert('adicionado a lista de favoritos!')}
+                onClick={() => favoritarHandle( card.id, card.name!, card.title!, card.poster_path! )}
                 sx={{ color: 'white' }}
                 aria-label={`star`}
               >

@@ -13,6 +13,7 @@ export const Favorites = () => {
   });
 
   const envolviment = {
+    isNormalLabel: false,
     SectionTitle: "Favoritos",
     SectionSubTitle: "",
     ButtonAllHref: "/dashboard/favorites",
@@ -39,7 +40,7 @@ export const Favorites = () => {
 
           {/* Local Cards */}
           <LocalSwipper>
-            {cards ? (
+            {cards.contents.length > 0 ? (
               cards.contents.slice(0, 10).map((card) => {
                 return (
                   <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
@@ -50,11 +51,24 @@ export const Favorites = () => {
             ) :
               <>
                 <div className="flex flex-row justify-between">
-                  <Skeleton width={'18%'} variant="rectangular" height={290} />
-                  <Skeleton width={'18%'} variant="rectangular" height={290} />
-                  <Skeleton width={'18%'} variant="rectangular" height={290} />
-                  <Skeleton width={'18%'} variant="rectangular" height={290} />
-                  <Skeleton width={'18%'} variant="rectangular" height={290} />
+                  <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
+                    <Skeleton width={'100%'} variant="rectangular" height={290} />
+                  </SwiperSlide>
+                  <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
+                    <Skeleton width={'100%'} variant="rectangular" height={290} />
+                  </SwiperSlide>
+                  <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
+                    <Skeleton width={'100%'} variant="rectangular" height={290} />
+                  </SwiperSlide>
+                  <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
+                    <Skeleton width={'100%'} variant="rectangular" height={290} />
+                  </SwiperSlide>
+                  <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
+                    <Skeleton width={'100%'} variant="rectangular" height={290} />
+                  </SwiperSlide>
+                  <SwiperSlide key={`favorites_${String(Math.random() * 1000)}`}>
+                    <Skeleton width={'100%'} variant="rectangular" height={290} />
+                  </SwiperSlide>
                 </div>
               </>
             }
