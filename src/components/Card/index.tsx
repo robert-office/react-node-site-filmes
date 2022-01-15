@@ -5,6 +5,7 @@ import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import { memo } from 'react';
 import "./styles.css";
 import { postFavoriteController } from "backend/controllers/laravel-api/postFavoriteController";
+import { postWatchlistController } from "backend/controllers/laravel-api/postWatchlistController";
 
 type Props = {
   card: ApiExternalResults;
@@ -27,6 +28,25 @@ const Card = ({ card }: Props) => {
     let dataString = JSON.stringify(data);
 
     const controller = new postFavoriteController();
+
+    controller.handle(dataString, userToken).then((response) => {
+      controller.choice(response.data.response, dataString, userToken).then((response) => {
+        window.alert(response.data.message);
+      });
+    })
+  }
+
+  function WatchlistHandle( id_movie: number, name: string, title: string, poster_path: string ) {
+    let data = {
+      id_movie:       id_movie,
+      name:           name,
+      title:          title,
+      poster_path:   poster_path
+    };
+
+    let dataString = JSON.stringify(data);
+
+    const controller = new postWatchlistController();
 
     controller.handle(dataString, userToken).then((response) => {
       controller.choice(response.data.response, dataString, userToken).then((response) => {
@@ -95,7 +115,7 @@ const Card = ({ card }: Props) => {
               </IconButton>
 
               <IconButton
-                onClick={() => window.alert('adicionado a lista de assistir depois!')}
+                onClick={() => WatchlistHandle( card.id, card.name!, card.title!, card.poster_path! )}
                 sx={{ color: 'white' }}
                 aria-label={`watchlist`}
               >
