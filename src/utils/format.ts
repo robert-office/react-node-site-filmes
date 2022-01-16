@@ -1,3 +1,4 @@
+import { LaravelResponseContent } from "backend/types/ApiExternalResponse";
 import { format } from "date-fns";
 
 export const round = (value: number, precision: number) => {
@@ -13,3 +14,14 @@ export const formatLocalDate = (date: string, pattern: string) => {
 export const formatStringWithReplaceSlash = (str : string) => {
     return str.replace(/_/g, " ");
 }
+
+export const verify = (list: LaravelResponseContent, id: number): boolean => {
+    let have = false;
+
+    list?.contents.map((list)=> {
+      if ( Number(list.id_movie) == id ) {
+        have = true;
+      }
+    });
+    return have;
+  }

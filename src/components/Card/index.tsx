@@ -2,27 +2,32 @@ import { IconButton, ImageListItemBar, Rating, Skeleton } from "@mui/material";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
+import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import { memo } from 'react';
 import "./styles.css";
 import { postFavoriteController } from "backend/controllers/laravel-api/postFavoriteController";
 import { postWatchlistController } from "backend/controllers/laravel-api/postWatchlistController";
+import { ToggleIconButton } from "components/ToggleIconButton";
+import StarIcon from '@mui/icons-material/Star';
 
 type Props = {
   card: ApiExternalResults;
+  areinFavorite?: boolean;
+  areInWatchlist?: boolean;
 };
 
-const Card = ({ card }: Props) => {
+const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
 
   const user = localStorage.getItem('user');
   const userJson = JSON.parse(user!);
   const userToken = userJson.token;
 
-  function favoritarHandle( id_movie: number, name: string, title: string, poster_path: string ) {
+  function favoritarHandle(id_movie: number, name: string, title: string, poster_path: string) {
     let data = {
-      id_movie:       id_movie,
-      name:           name,
-      title:          title,
-      poster_path:   poster_path
+      id_movie: id_movie,
+      name: name,
+      title: title,
+      poster_path: poster_path
     };
 
     let dataString = JSON.stringify(data);
@@ -36,12 +41,12 @@ const Card = ({ card }: Props) => {
     })
   }
 
-  function WatchlistHandle( id_movie: number, name: string, title: string, poster_path: string ) {
+  function WatchlistHandle(id_movie: number, name: string, title: string, poster_path: string) {
     let data = {
-      id_movie:       id_movie,
-      name:           name,
-      title:          title,
-      poster_path:   poster_path
+      id_movie: id_movie,
+      name: name,
+      title: title,
+      poster_path: poster_path
     };
 
     let dataString = JSON.stringify(data);
@@ -53,6 +58,29 @@ const Card = ({ card }: Props) => {
         window.alert(response.data.message);
       });
     })
+  }
+
+  const favoriteButton = {
+    initialValue: areinFavorite,
+    activeIcon: <StarIcon />,
+    disabledIcon: <StarBorderIcon />,
+    fn: () => favoritarHandle(card.id, card.name!, card.title!, card.poster_path!)
+  }
+
+  const watchlistButton = {
+    initialValue: areInWatchlist,
+    activeIcon: <WatchLaterIcon />,
+    disabledIcon: <WatchLaterOutlinedIcon />,
+    fn: () => WatchlistHandle(card.id, card.name!, card.title!, card.poster_path!)
+  }
+
+  let subt = <></>;
+
+  if (userToken) {
+    subt = <div className=" flex justify-between opacity-100">
+            <ToggleIconButton Props={favoriteButton} />
+            <ToggleIconButton Props={watchlistButton} />
+          </div>
   }
 
   return (
@@ -103,31 +131,12 @@ const Card = ({ card }: Props) => {
               </a>
             </>
           }
-
-          subtitle={
-            <div className=" flex justify-between opacity-100">
-              <IconButton
-                onClick={() => favoritarHandle( card.id, card.name!, card.title!, card.poster_path! )}
-                sx={{ color: 'white' }}
-                aria-label={`star`}
-              >
-                <StarBorderIcon />
-              </IconButton>
-
-              <IconButton
-                onClick={() => WatchlistHandle( card.id, card.name!, card.title!, card.poster_path! )}
-                sx={{ color: 'white' }}
-                aria-label={`watchlist`}
-              >
-                <WatchLaterIcon />
-
-              </IconButton>
-            </div>
-          }
+          subtitle={subt}
         />
 
         <ImageListItemBar className="opacity-0 group-hover:opacity-100" style={{ transition: '0.3s' }} sx={{ backgroundColor: "rgba(0, 0, 0,.7)" }}
-          subtitle={
+          subtitle=
+          {
             <div className="flex flex-col opacity-100">
               <div className="flex justify-between">
                 <Rating
@@ -144,7 +153,7 @@ const Card = ({ card }: Props) => {
                 </p>
               </div>
               <div>
-                <p className="text-xs"> votado por: { card.vote_count } pessoas </p>
+                <p className="text-xs"> votado por: {card.vote_count} pessoas </p>
               </div>
             </div>
           }

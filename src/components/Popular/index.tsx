@@ -1,13 +1,25 @@
-import Card  from "components/Card";
+import Card from "components/Card";
 import { useEffect, useState } from "react";
 import { Label } from "components/MoviesLabel";
 import { SwiperSlide } from "swiper/react";
 import { LocalSwipper } from "components/LocalSwipper";
 import { getPopularMoviesController } from "backend/controllers/external-api/getPopularMoviesController";
-import { ApiExternalResponse } from "backend/types/ApiExternalResponse";
+import { ApiExternalResponse, LaravelResponseContent } from "backend/types/ApiExternalResponse";
 import { Skeleton } from "@mui/material";
+import { getFavoritesController } from "backend/controllers/laravel-api/getFavoritesController";
+import { getWatchlistController } from "backend/controllers/laravel-api/getWatchlistController";
+import { verify } from "utils/format";
 
 export const MoviePopular = () => {
+
+  const user = localStorage.getItem('user');
+  const userJson = JSON.parse(user!);
+  const userToken = userJson.token;
+
+  const [favoritos, setFavoritos] = useState<LaravelResponseContent>();
+  const [watchList, setwatchList] = useState<LaravelResponseContent>();
+
+
   const [cards, setCards] = useState<ApiExternalResponse>({
     results: [],
     page: 1,
@@ -24,7 +36,23 @@ export const MoviePopular = () => {
   useEffect(() => {
     const controller = new getPopularMoviesController();
     controller.handle().then((response) => {
-      setCards(response.data);
+      /// puxa os favoritos
+      const controllerFavorites = new getFavoritesController();
+      controllerFavorites.handle(userToken).then((favoritesResponse) => {
+        setFavoritos(favoritesResponse.data);
+
+        /// puxa os dados de lista de espera
+        const controllerWatchlist = new getWatchlistController();
+        controllerWatchlist.handle(userToken).then((watchlistResponse) => {
+          setwatchList(watchlistResponse.data);
+
+          /// então só ai cria as cards, pois os paramentros são dependentes
+          setCards(response.data);
+        });
+      }).catch(()=>{
+        /// deu erro é pq o usuario não esta logado, então seta as cards para ele poder visualizar normalmente
+        setCards( response.data );
+      });
     });
   }, []);
 
@@ -42,7 +70,7 @@ export const MoviePopular = () => {
               cards.results.slice(0, 10).map((card) => {
                 return (
                   <SwiperSlide key={`popular_${String(Math.random() * 1000)}`}>
-                    <Card card={card} />
+                    <Card card={card} areinFavorite={verify(favoritos!, card.id)} areInWatchlist={verify(watchList!, card.id)} />
                   </SwiperSlide>
                 );
               })
