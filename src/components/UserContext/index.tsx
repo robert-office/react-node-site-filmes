@@ -6,6 +6,7 @@ interface AuxProps {
     children: ReactChild | ReactChildren;
 }
 
+
 export const UserContextComponent = ({ children }: AuxProps) => {
     
     const [value, setValue] = usePersistedState('user', {});
