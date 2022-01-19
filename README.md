@@ -13,12 +13,12 @@
 
 <!--Banner session-->
 <p align="center">
-  <img src="./src/assets/img/cover_dio.png" alt="imagem banner" title="Digital Innovation One">
+  <img src="./src/assets/img/banner.png" alt="imagem banner" title="AcompanyOn">
 </p>
 
 
 <!--About session-->
-<h1 align="center">Site para Gerenciamento de listas de filmes e séries<br>Robert Uillians</h1>
+<h1 align="center">Site para Gerenciamento de listas de filmes e séries<br>AcompanyOn</h1>
 
 Criei um site que contém as principais funcionalidades de um site administrativo profissional para incluí-lo ao meu portfólio, o usuario poderá criar uma conta, logar, alterar suas informações, e favoritar e criar uma lista de espera para organizar todos os filmes e/ou séries que eles querem ou vão assistir.
 
