@@ -26,9 +26,20 @@ As imagens dos filmes incluídos neste projetos foram retiradas do site [The Mov
 
 - [Projeto desenvolvido](https://clone-netflix.vercel.app/)
 
-<p align="center"><img src="./src/assets/img/projeto.gif" title="Projeto Gerenciamento de Filmes"></p>
-<p align="center"><img src="./src/assets/img/projeto-responsivo.gif" title="Projeto Responsivo"></p>
+<h3>🏠 Landing Page e suas funcionalidades</h3>
+<p align="center"><img src="public/landing.gif" title="Landing Page"></p>
 
+<h3>🌞🌚 Temas Dark e Light totalmente funcional</h3>
+<p align="center"><img src="public/theme.gif" title="Exibição de temas"></p>
+
+<h3>🤓 Todas as Páginas totalmente responsivas!</h3>
+<p align="center"><img src="public/fullresponsive.gif" title="Pagina de Detalhes dos Filmes/Séries"></p>
+
+<h3>🤓 Paginas de cadastro e de login funcionais</h3>
+<p align="center"><img src="public/cadastropage.gif" title="Pagina de Cadastro"></p>
+
+<h3>🤓 Pagina de detalhes dos Filmes/Séries puxando através de uma API externa</h3>
+<p align="center"><img src="public/detalhes.gif" title="Pagina de Detalhes dos Filmes/Séries"></p>
 
 <h3>👨‍💻 Tecnologias utilizadas</h3>
 
