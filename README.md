@@ -61,5 +61,13 @@ As imagens dos filmes incluídos neste projetos foram retiradas do site [The Mov
 - Este projeto está sob a licença [MIT](./LICENSE).
 
 
+<h3> 🚧 Funcionalidades ainda a serem implementadas 🚧 </h3>
+
+- Paginas para mostrar todos os favoritos e watchlist
+- Pagina e CRUD da parte de informações do usuario
+- Criar History dos usuarios e por isso em um Dashboard
+- Por um loading na hora de favoritar ou de por na lista de espera
+
+
 <!--Bottom session-->
 <br><h4 align=center>Feito por <a target="_blank" href="https://robert-office.github.io/robert-curriculum" >Robert Uillians</a></h4>
