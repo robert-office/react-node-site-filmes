@@ -13,7 +13,7 @@
 
 <!--Banner session-->
 <p align="center">
-  <img src="./src/assets/img/banner.png" alt="imagem banner" title="AcompanyOn">
+  <img src="./public/banner.png" alt="imagem banner" title="AcompanyOn">
 </p>
 
 
