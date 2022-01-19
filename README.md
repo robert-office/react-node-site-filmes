@@ -13,7 +13,7 @@
 
 <!--Banner session-->
 <p align="center">
-  <img src="./src/assets/img/cover_dio.png" alt="DIO" title="Digital Innovation One">
+  <img src="./src/assets/img/cover_dio.png" alt="imagem banner" title="Digital Innovation One">
 </p>
 
 
@@ -51,4 +51,4 @@ As imagens dos filmes incluídos neste projetos foram retiradas do site [The Mov
 
 
 <!--Bottom session-->
-<br><h4 align=center>Feito por <a target="_blank" href="https://pleiterson.vercel.app" >Robert Uillians</a></h4>
+<br><h4 align=center>Feito por <a target="_blank" href=https://robert-office.github.io/robert-curriculum" >Robert Uillians</a></h4>
