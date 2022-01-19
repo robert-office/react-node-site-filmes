@@ -24,7 +24,7 @@ Criei um site que contém as principais funcionalidades de um site administrativ
 
 As imagens dos filmes incluídos neste projetos foram retiradas do site [The Movie Database - TMDb](https://www.themoviedb.org/). O carousel foi criado através de uma bibliotéca chamada SwipperJs [SwipperJs](https://swiperjs.com/), no site contém vários exemplos de carousel.
 
-- [Projeto desenvolvido](https://clone-netflix.vercel.app/)
+<h3>🏠 Projeto hospedado na Netilify: </h3> [Projeto desenvolvido](https://acompanyon.netlify.app)
 
 <h3>🏠 Landing Page e suas funcionalidades</h3>
 <p align="center"><img src="public/landing.gif" title="Landing Page"></p>
