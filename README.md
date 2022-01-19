@@ -22,12 +22,12 @@
 
 Criei um site que contém as principais funcionalidades de um site administrativo profissional para incluí-lo ao meu portfólio, o usuario poderá criar uma conta, logar, alterar suas informações, e favoritar e criar uma lista de espera para organizar todos os filmes e/ou séries que eles querem ou vão assistir.
 
-As imagens dos filmes incluídos neste projetos foram retiradas do site [The Movie Database - TMDb](https://www.themoviedb.org/). O carousel foi criado através de uma bibliotéca chamada SwipperJs [SwipperJs](https://owlcarousel2.github.io/OwlCarousel2/), no site contém vários exemplos de carousel.
+As imagens dos filmes incluídos neste projetos foram retiradas do site [The Movie Database - TMDb](https://www.themoviedb.org/). O carousel foi criado através de uma bibliotéca chamada SwipperJs [SwipperJs](https://swiperjs.com/), no site contém vários exemplos de carousel.
 
 - [Projeto desenvolvido](https://clone-netflix.vercel.app/)
 
-<p align="center"><img src="./src/assets/img/projeto.gif" title="Clone Netflix - DIO"></p>
-<p align="center"><img src="./src/assets/img/projeto-responsivo.gif" title="Clone Netflix - DIO"></p>
+<p align="center"><img src="./src/assets/img/projeto.gif" title="Projeto Gerenciamento de Filmes"></p>
+<p align="center"><img src="./src/assets/img/projeto-responsivo.gif" title="Projeto Responsivo"></p>
 
 
 <h3>👨‍💻 Tecnologias utilizadas</h3>
@@ -35,13 +35,13 @@ As imagens dos filmes incluídos neste projetos foram retiradas do site [The Mov
 - [HTML](https://www.w3schools.com/html/)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [ReactJS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [AXIOS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Typescript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [TailwindCSS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [SwipperJS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [MUI](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Laravel](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [ReactJS](https://pt-br.reactjs.org/)
+- [AXIOS](https://axios-http.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [SwipperJS](https://swiperjs.com/)
+- [MUI](https://mui.com/)
+- [Laravel](https://laravel.com/)
 
 
 <!--License session-->
