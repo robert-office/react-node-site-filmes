@@ -1,4 +1,4 @@
-import { IconButton, ImageListItemBar, Rating, Skeleton } from "@mui/material";
+import { ImageListItemBar, Rating, Skeleton } from "@mui/material";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
@@ -9,6 +9,7 @@ import { postFavoriteController } from "backend/controllers/laravel-api/postFavo
 import { postWatchlistController } from "backend/controllers/laravel-api/postWatchlistController";
 import { ToggleIconButton } from "components/ToggleIconButton";
 import StarIcon from '@mui/icons-material/Star';
+import { useSnackbar } from 'notistack';
 
 type Props = {
   card: ApiExternalResults;
@@ -17,6 +18,8 @@ type Props = {
 };
 
 const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const user = localStorage.getItem('user');
   const userJson = JSON.parse(user!);
@@ -36,7 +39,16 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
 
     controller.handle(dataString, userToken).then((response) => {
       controller.choice(response.data.response, dataString, userToken).then((response) => {
-        window.alert(response.data.message);
+        if (response.status == 201) {
+          enqueueSnackbar('Favoritado com sucesso!', {
+            variant: 'success',
+          });
+        }
+        else {
+          enqueueSnackbar('Retirado com sucesso!', {
+            variant: 'success',
+          });
+        }
       });
     })
   }
@@ -55,7 +67,16 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
 
     controller.handle(dataString, userToken).then((response) => {
       controller.choice(response.data.response, dataString, userToken).then((response) => {
-        window.alert(response.data.message);
+        if (response.status == 201) {
+          enqueueSnackbar('Colocado na lista com sucesso!', {
+            variant: 'success',
+          });
+        }
+        else {
+          enqueueSnackbar('Retirado da lista com sucesso!', {
+            variant: 'success',
+          });
+        }
       });
     })
   }
@@ -78,9 +99,9 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
 
   if (userToken) {
     subt = <div className=" flex justify-between opacity-100">
-            <ToggleIconButton Props={favoriteButton} />
-            <ToggleIconButton Props={watchlistButton} />
-          </div>
+      <ToggleIconButton Props={favoriteButton} />
+      <ToggleIconButton Props={watchlistButton} />
+    </div>
   }
 
   return (

@@ -1,13 +1,16 @@
 import Routes from "Routes";
+import { SnackbarProvider } from 'notistack';
 
 function App() {
 
-  if ( !localStorage.getItem('user')) {
+  if (!localStorage.getItem('user')) {
     localStorage.setItem('user', "{}");
   }
-
+  
   return (
-    <Routes/>
+    <SnackbarProvider maxSnack={3}>
+      <Routes />
+    </SnackbarProvider>
   );
 }
 
