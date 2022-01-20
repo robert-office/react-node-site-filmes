@@ -24,7 +24,7 @@ Criei um site que contém as principais funcionalidades de um site administrativ
 
 As imagens dos filmes incluídos neste projetos foram retiradas do site [The Movie Database - TMDb](https://www.themoviedb.org/). O carousel foi criado através de uma bibliotéca chamada SwipperJs [SwipperJs](https://swiperjs.com/), no site contém vários exemplos de carousel.
 
-<h3>🏠 Projeto hospedado na Netilify: </h3> [Projeto desenvolvido](https://acompanyon.netlify.app)
+<h3>🏠 Projeto hospedado na Netilify: </h3> [Projeto](https://acompanyon.netlify.app)
 
 <h3>🏠 Landing Page e suas funcionalidades</h3>
 <p align="center"><img src="public/landing.gif" title="Landing Page"></p>
@@ -59,6 +59,14 @@ As imagens dos filmes incluídos neste projetos foram retiradas do site [The Mov
 <h3>📝 Licença</h3>
 
 - Este projeto está sob a licença [MIT](./LICENSE).
+
+
+<h3> 🚧 Funcionalidades ainda a serem implementadas 🚧 </h3>
+
+- Paginas para mostrar todos os favoritos e watchlist
+- Pagina e CRUD da parte de informações do usuario
+- Criar History dos usuarios e por isso em um Dashboard
+- Por um loading na hora de favoritar ou de por na lista de espera
 
 
 <!--Bottom session-->
