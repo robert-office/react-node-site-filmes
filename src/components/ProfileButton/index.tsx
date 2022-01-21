@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { UserContext } from 'utils/userContext';
+import { useContext, useState } from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -14,6 +16,8 @@ import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
 export default function ProfileButton() {
+    /// user context
+    const { value } = useContext(UserContext);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -34,7 +38,12 @@ export default function ProfileButton() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}> <FaceIcon /> </Avatar>
+                        {value.user.path_img == '' ? (
+                            <Avatar sx={{ width: 32, height: 32 }}> <FaceIcon /> </Avatar>
+                        ) : (
+                            <img className='relative bg-gray-200 rounded-full bg-cover bg-center' src={value.user.path_img!}
+                            style={{width: '32px', height: '32px'}} />
+                        )}
                     </IconButton>
                 </Tooltip>
             </Box>

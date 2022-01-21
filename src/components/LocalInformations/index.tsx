@@ -1,8 +1,10 @@
 import { styled, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
-
+import { postUserController } from "backend/controllers/laravel-api/postUserController";
+import { useSnackbar } from "notistack";
+import { useContext, useEffect, useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import usePersistedState from "utils/usePersistedState";
+import { UserContext } from "utils/userContext";
 
 const fileTypes = ["JPG", "PNG", "GIF", "jpeg", "png", "gif", "jpg"];
 
@@ -48,35 +50,53 @@ const CssTextFieldWhite = styled(TextField)({
 
 export const LocalInformations = () => {
 
+    /// user context
+    const { value, setValue } = useContext(UserContext);
+    const [themeDark] = usePersistedState('theme', false);
     const [file, setFile] = useState(null);
-    const [img, setImg] = useState('');
+    const [img, setImg] = useState(value.user.path_img || '');
+    const userController = new postUserController();
+    const { enqueueSnackbar } = useSnackbar();
 
-    useEffect(() => {
-        console.log(file);
-    }, [file]);
-
-    const handleChange = (file: any) => {
+    /// é acionado quando o usuario for trocar a foto
+    const uploadAndChangeUserImg = (file: any) => {
+        /// seta o aquivo
         setFile(file);
+        /// faz a pré-visualização
         const fileReader = new FileReader()
+        /// callback
         fileReader.onloadend = () => {
             setImg(fileReader.result as string);
         }
+        /// põem pra trabalhar
         fileReader.readAsDataURL(file);
-    };
+        /// cria o formadata
+        let formData = new FormData();
+        formData.append('imagem[]', file);
 
-    const [themeDark] = usePersistedState('theme', false);
+        userController.updateImg(value.token!, formData).then((response) => {
+            enqueueSnackbar('Imagem mudada com sucesso!', {
+                variant: 'success',
+            });
+
+            setValue({user: response.data.user, token: value.token});
+        }).catch(() => {
+            enqueueSnackbar('Houve um erro ao mudar a imagem', {
+                variant: 'warning',
+            });
+        })
+    };
 
     return (
         <>
             <section className="w-full flex sm:flex-row flex-col">
                 <div className="sm:w-1/2 w-full flex justify-center sm:justify-start align-middle flex-col sm:mt-0 my-10">
-                    <FileUploader handleChange={handleChange} name="file" types={fileTypes} maxSize={2} minSize={0} label={"Drope ou clique para escolher sua foto"}>
-                        {!file ? (
-                            <div className="relative w-52 h-52 dark:bg-gray-100 bg-gray-400 rounded-full mx-auto sm:mt-10 cursor-pointer">
-
-                            </div>
-                        ) : (
+                    <FileUploader handleChange={uploadAndChangeUserImg} name="file" types={fileTypes} maxSize={2} minSize={0} label={"Drope ou clique para escolher sua foto"}>
+                        { img !== "" ? (
                             <img className="relative w-52 h-52 bg-cover bg-center rounded-full mx-auto sm:mt-10 cursor-pointer" src={img} />
+
+                        ) : (
+                            <div className="relative w-52 h-52 rounded-full mx-auto sm:mt-10 cursor-pointer bg-gray-300" ></div>
                         )}
                     </FileUploader>
                 </div>
