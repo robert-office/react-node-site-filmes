@@ -1,8 +1,9 @@
-import { styled, TextField } from "@mui/material";
+import { Backdrop, CircularProgress, styled, TextField } from "@mui/material";
 import { postUserController } from "backend/controllers/laravel-api/postUserController";
 import { useSnackbar } from "notistack";
 import { useContext, useEffect, useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
+import { serializeForm } from "utils/serializeForms";
 import usePersistedState from "utils/usePersistedState";
 import { UserContext } from "utils/userContext";
 
@@ -79,7 +80,7 @@ export const LocalInformations = () => {
                 variant: 'success',
             });
 
-            setValue({user: response.data.user, token: value.token});
+            setValue({ user: response.data.user, token: value.token });
         }).catch(() => {
             enqueueSnackbar('Houve um erro ao mudar a imagem', {
                 variant: 'warning',
@@ -87,12 +88,59 @@ export const LocalInformations = () => {
         })
     };
 
+    //// loading backdrop
+    const [open, setOpen] = useState(false);
+    const handleLoading = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const update = (e: any) => {
+        /// previne o padão default que o form reproduz que é o de recarregar a tela
+        e.preventDefault();
+        /// chama o backdrop do loading
+        handleLoading();
+        /// recupera os dados do formulario
+        const form: any = document.querySelector('#updateForm')!;
+        var data = serializeForm(form);
+        /// chama o controller do Cadastro
+        const controller = new postUserController();
+        /// utiliza a função para cadastrar
+        controller.updateInfos(value.token!, data).then((response) => {
+            /// storing the user
+            setValue({ user: response.data, token: value.token });
+            enqueueSnackbar('Informações mudadas com sucesso!', {
+                variant: 'success',
+            });
+
+        }).catch(() => {
+            enqueueSnackbar('Infelizmente algo deu errado!!', {
+                variant: 'warning',
+            });
+        }).finally(() => {
+            /// fecha o loading backdrop
+            handleClose();
+        });
+    }
+
+
+
     return (
         <>
+            {/* backdrop Loading  */}
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={open}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>
+
             <section className="w-full flex sm:flex-row flex-col">
                 <div className="sm:w-1/2 w-full flex justify-center sm:justify-start align-middle flex-col sm:mt-0 my-10">
                     <FileUploader handleChange={uploadAndChangeUserImg} name="file" types={fileTypes} maxSize={2} minSize={0} label={"Drope ou clique para escolher sua foto"}>
-                        { img !== "" ? (
+                        {img !== "" ? (
                             <img className="relative w-52 h-52 bg-cover bg-center rounded-full mx-auto sm:mt-10 cursor-pointer" src={img} />
 
                         ) : (
@@ -100,26 +148,32 @@ export const LocalInformations = () => {
                         )}
                     </FileUploader>
                 </div>
-                <div className="relative sm:w-1/2 w-full mt-2">
+                <form onSubmit={update} id="updateForm" className="relative sm:w-1/2 w-full mt-2">
                     <fieldset className="relative space-y-4 w-full flex flex-col border black:border-gray-100 border-warmGray-400 py-2 px-2 rounded">
                         <legend className="text-lg font-bold dark:text-white text-gray-500">Informações Pessoais</legend>
 
                         {themeDark ? (
                             <>
-                                <CssTextFieldBlack label="Nome" id="custom-css-outlined-input" sx={{ input: { color: 'white', width: '100%' } }} />
-                                <CssTextFieldBlack label="E-mail" id="custom-css-outlined-input" sx={{ input: { color: 'white' } }} />
-                                <CssTextFieldBlack multiline minRows={4} maxRows={4} label="Descrição" id="custom-css-outlined-input" sx={{ input: { color: 'white' } }} />
+                                <CssTextFieldBlack defaultValue={value.user.name} label="Nome" name="name" id="custom-css-outlined-input" sx={{ input: { color: 'white', width: '100%' } }} />
+                                <CssTextFieldBlack defaultValue={value.user.email} label="E-mail" type="email" disabled id="custom-css-outlined-input" sx={{ input: { color: 'white' } }} />
+                                <CssTextFieldBlack defaultValue={value.user.descricao} multiline minRows={4} name="descricao" maxRows={4} label="Descrição" id="custom-css-outlined-input" sx={{ input: { color: 'white' } }} />
                             </>
                         ) : (
                             <>
-                                <CssTextFieldWhite label="Nome" id="custom-css-outlined-input" sx={{ input: { color: 'gray', width: '100%' } }} />
-                                <CssTextFieldWhite label="E-mail" id="custom-css-outlined-input" sx={{ input: { color: 'gray' } }} />
-                                <CssTextFieldWhite multiline minRows={4} maxRows={4} label="Descrição" id="custom-css-outlined-input" sx={{ input: { color: 'gray' } }} />
+                                <CssTextFieldWhite label="Nome" defaultValue={value.user.name} name="name" id="custom-css-outlined-input" sx={{ input: { color: 'gray', width: '100%' } }} />
+                                <CssTextFieldWhite label="E-mail" defaultValue={value.user.email} type="email" disabled id="custom-css-outlined-input" sx={{ input: { color: 'gray' } }} />
+                                <CssTextFieldWhite multiline minRows={4} defaultValue={value.user.descricao} name="descricao" maxRows={4} label="Descrição" id="custom-css-outlined-input" sx={{ input: { color: 'gray' } }} />
                             </>
                         )}
 
+                        <button
+                            type="submit"
+                            className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-indigo-600 rounded-lg hover:bg-blue-700 ease"
+                        >
+                            Atualizar
+                        </button>
                     </fieldset>
-                </div>
+                </form>
             </section>
         </>
     );

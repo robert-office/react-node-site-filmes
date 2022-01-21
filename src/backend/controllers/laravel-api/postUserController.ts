@@ -1,3 +1,4 @@
+import { postUpdateUserService } from './../../services/laravel-api/postUpdateUserService';
 import { postUpdateImgService } from "backend/services/laravel-api/postUpdateImgService";
 
 export class postUserController {
@@ -5,5 +6,11 @@ export class postUserController {
 
         const service = new postUpdateImgService();
         return await service.execute(token, img);
+    }
+
+    async updateInfos(token: string, data: string) {
+
+        const service = new postUpdateUserService();
+        return await service.execute(token, data);
     }
 }
