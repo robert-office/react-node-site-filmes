@@ -1,4 +1,5 @@
 import { Skeleton } from "@mui/material";
+import { getSearchController } from "backend/controllers/external-api/getSearchController";
 import { getFavoritesController } from "backend/controllers/laravel-api/getFavoritesController";
 import { getWatchlistController } from "backend/controllers/laravel-api/getWatchlistController";
 import { ApiExternalResponse, LaravelResponseContent } from "backend/types/ApiExternalResponse";
@@ -7,20 +8,20 @@ import PaginationLink from "components/PaginationLink/PaginationLink";
 import { SetStateAction, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { verify } from "utils/format";
-import { getController } from "utils/seletive";
 
 type Props = {
-  content: string;
-};
+  pesquisa: string
+}
 
-export const LocalTodos = ({ content }: Props) => {
+export const LocalSearch = ({ pesquisa }: Props ) => {
+  
   const user = localStorage.getItem('user');
   const userJson = JSON.parse(user!);
   const userToken = userJson.token;
   
   const [favoritos, setFavoritos] = useState<LaravelResponseContent>();
   const [watchList, setwatchList] = useState<LaravelResponseContent>();
-
+  
   const search = useLocation().search;
   const page = Number(new URLSearchParams(search).get("page"));
   const PageAtual = page ? page : 1;
@@ -32,9 +33,9 @@ export const LocalTodos = ({ content }: Props) => {
   });
 
   useEffect(() => {
-    const Controller = getController(content);
+    const Controller = new getSearchController();
 
-    Controller.handle(PageAtual).then((response: { data: SetStateAction<ApiExternalResponse>; }) => {
+    Controller.handle(PageAtual, pesquisa).then((response: { data: SetStateAction<ApiExternalResponse>; }) => {
       /// puxa os favoritos
       const controllerFavorites = new getFavoritesController();
       controllerFavorites.handle(userToken).then((favoritesResponse) => {
@@ -53,13 +54,13 @@ export const LocalTodos = ({ content }: Props) => {
         setAlldata( response.data );
       });
     });
-  }, [PageAtual, content]);
+  }, [PageAtual, pesquisa]);
 
   return (
     <>
       <section className="p-5 dark:bg-gray-700 rounded">
         <div className="relative">
-          <h2 className="text-2xl font-extrabold dark:text-gray-50"> Todos ( {content} ) </h2>
+          <h2 className="text-2xl font-extrabold dark:text-gray-50"> Resultados da pesquisa para: ( { pesquisa } ) </h2>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-6">
           <span className="text-sm font-semibold dark:text-gray-200">
@@ -102,7 +103,6 @@ export const LocalTodos = ({ content }: Props) => {
         <div className="flex justify-center mt-8">
           {!!alldata.total_pages ? (
             <PaginationLink
-              content={content}
               totalPages={String(alldata.total_pages > 500 ? 500 : alldata.total_pages)}
             />
           ) : (

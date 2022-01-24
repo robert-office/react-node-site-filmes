@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import DarkModeIcon from '@material-ui/icons/NightsStay';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useSnackbar } from "notistack";
 import './style.css';
 
 export const OtherNavBar = () => {
@@ -23,7 +24,30 @@ export const OtherNavBar = () => {
     }, [themeDark]);
 
     /// user context
-    const { value, setValue } = useContext(UserContext)
+    const { value, setValue } = useContext(UserContext);
+
+    /// pesquisa
+    const [inputPesquisa, setInputPesquisa] = useState('');
+
+    /// notificações
+    const { enqueueSnackbar } = useSnackbar();
+
+    /// campo de pesquisa
+    function pesquisar(e: any) {
+
+        /// previne ação default do navegador
+        e.preventDefault();
+
+        if (inputPesquisa.length >= 2) {
+            const pesquisa_parsed = inputPesquisa.normalize('NFD').replace(/\//g, ' ')
+            window.location.href = `${process.env.REACT_APP_BASE_URL}/procurar/${pesquisa_parsed}`;
+        }
+        else {
+            enqueueSnackbar('Digite pelo menos 2 letras!', {
+                variant: 'warning',
+            });
+        }
+    }
 
     return (
         <>
@@ -176,13 +200,17 @@ export const OtherNavBar = () => {
                 )}
             </div>
             <nav className="container flex flex-wrap items-center justify-between mx-auto flex-row max-w-6xl px-8 xl:px-5">
-                <form className="relative sm:w-4/5 w-3/5 h-12 flex flex-row">
+
+                <form className="relative sm:w-4/5 w-3/5 h-12 flex flex-row" onSubmit={pesquisar}>
                     <div className="relative w-full" >
                         <input placeholder="Pesquise por filmes ou séries neste campo..."
+                            min={2}
+                            minLength={2}
                             type="text"
+                            onChange={(e) => setInputPesquisa(e.target.value)}
                             className="w-full h-full relative border dark:bg-gray-600 bg-gray-100 shadow-xl border-gray-800 dark:border-white rounded-l-md px-2 dark:text-white text-gray-700" />
                     </div>
-                    <button className="relative dark:bg-white bg-gray-600 border-r border-gray-800 dark:border-white rounded-r-md w-10 p-1 flex items-center">
+                    <button type="submit" className="relative dark:bg-white bg-gray-600 border-r border-gray-800 dark:border-white rounded-r-md w-10 p-1 flex items-center">
                         {!themeDark ? (
                             <SearchIcon sx={{ color: 'white' }} />
                         ) : (

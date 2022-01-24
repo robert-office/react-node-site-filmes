@@ -3,11 +3,11 @@ import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 
 type Props = {
-  content: string;
+  content?: string;
   totalPages: string
 };
 
-export default function PaginationLink( { content, totalPages }: Props ) {
+export default function PaginationLink( { content = "s", totalPages }: Props ) {
     
   return (
     

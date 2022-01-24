@@ -121,11 +121,7 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
         >
           {!card.poster_path ? (
             <>
-              <div>
-                <Skeleton variant="text" width={'100%'} />
-                <Skeleton width={'100%'} variant="rectangular" className="h-full sm:h-72" />
-                <Skeleton variant="text" width={'100%'} />
-              </div>
+              <Skeleton width={'100%'} variant="rectangular" height={288} />
             </>
           ) : (
             <img
