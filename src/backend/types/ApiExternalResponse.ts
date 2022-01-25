@@ -39,3 +39,21 @@ export type content = {
   title? : string,
   poster_path? : string
 }
+
+export type HistoryContent = {
+  lenght: number,
+  history: HistoryType[]
+}
+
+export type HistoriesType = {
+  history: HistoryType[]
+}
+
+export type HistoryType = {
+  id: number,
+  type: string,
+  type_id: number,
+  ad_content: string,
+  created_at: string
+
+}

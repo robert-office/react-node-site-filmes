@@ -10,6 +10,7 @@ import { postWatchlistController } from "backend/controllers/laravel-api/postWat
 import { ToggleIconButton } from "components/ToggleIconButton";
 import StarIcon from '@mui/icons-material/Star';
 import { useSnackbar } from 'notistack';
+import { historyController } from "backend/controllers/laravel-api/historyController";
 
 type Props = {
   card: ApiExternalResults;
@@ -36,6 +37,7 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
     let dataString = JSON.stringify(data);
 
     const controller = new postFavoriteController();
+    const historyC = new historyController();
 
     controller.handle(dataString, userToken).then((response) => {
       controller.choice(response.data.response, dataString, userToken).then((response) => {
@@ -43,10 +45,18 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
           enqueueSnackbar('Favoritado com sucesso!', {
             variant: 'success',
           });
+
+          historyC.addInHistory(userToken, 2, name ? name : title).then(()=> {
+            console.log('history adicionado com sucesso!');
+          });
         }
         else {
           enqueueSnackbar('Retirado com sucesso!', {
             variant: 'success',
+          });
+
+          historyC.addInHistory(userToken, 3, name ? name : title).then(()=> {
+            console.log('history adicionado com sucesso!');
           });
         }
       });
@@ -64,6 +74,7 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
     let dataString = JSON.stringify(data);
 
     const controller = new postWatchlistController();
+    const historyC = new historyController();
 
     controller.handle(dataString, userToken).then((response) => {
       controller.choice(response.data.response, dataString, userToken).then((response) => {
@@ -71,10 +82,18 @@ const Card = ({ card, areinFavorite, areInWatchlist }: Props) => {
           enqueueSnackbar('Colocado na lista com sucesso!', {
             variant: 'success',
           });
+
+          historyC.addInHistory(userToken, 4, name ? name : title).then(()=> {
+            console.log('history adicionado com sucesso!');
+          });
         }
         else {
           enqueueSnackbar('Retirado da lista com sucesso!', {
             variant: 'success',
+          });
+
+          historyC.addInHistory(userToken, 5, name ? name : title).then(()=> {
+            console.log('history adicionado com sucesso!');
           });
         }
       });

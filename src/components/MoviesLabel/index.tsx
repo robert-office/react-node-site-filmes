@@ -1,9 +1,10 @@
 type EnvolvimentLabel = {
   envolviment: {
     isNormalLabel?: boolean,
+    NoButton?: boolean,
     SectionTitle: string;
     SectionSubTitle: string;
-    ButtonAllHref: string;
+    ButtonAllHref?: string;
   };
 };
 
@@ -37,14 +38,18 @@ export const Label = ({ envolviment }: EnvolvimentLabel) => {
           )}
         </a>
       </div>
-      <div className="md:ml-auto flex w-auto sm:mt-0 mt-3">
-        <a
-          href={`${envolviment.isNormalLabel == undefined ? '/todos' : ''}${envolviment.ButtonAllHref}`}
-          className="primaryNonDarkColorButton sm:w-auto sm:text-lg text-xs"
-        >
-          Ver Todos
-        </a>
-      </div>
+
+      {!envolviment.NoButton && (
+        <div className="md:ml-auto flex w-auto sm:mt-0 mt-3">
+          <a
+            href={`${envolviment.isNormalLabel == undefined ? '/todos' : ''}${envolviment.ButtonAllHref}`}
+            className="primaryNonDarkColorButton sm:w-auto sm:text-lg text-xs"
+          >
+            Ver Todos
+          </a>
+        </div>
+      )}
+
     </div>
   );
 };

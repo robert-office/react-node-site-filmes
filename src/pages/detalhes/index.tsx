@@ -1,4 +1,5 @@
 import { getDetailsController } from "backend/controllers/external-api/getDetailsController";
+import { historyController } from "backend/controllers/laravel-api/historyController";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import { BodyDetalhes } from "components/bodyDetalhes";
 import Footer from "components/Footer";
@@ -10,6 +11,7 @@ import { Similar } from "components/Similar";
 import { TraillersLocal } from "components/TraillersLocal";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { formatStringWithReplaceSlash } from "utils/format";
 
 export const Detalhes = () => {
   const [Infos, setInfos] = useState<ApiExternalResults>({
@@ -19,6 +21,10 @@ export const Detalhes = () => {
   });
 
   let { search, id } = useParams<{ search: string; id: string }>();
+
+  const user = localStorage.getItem('user');
+  const userJson = JSON.parse(user!);
+  const userToken = userJson.token;
 
   useEffect(() => {
     const controller = new getDetailsController();
@@ -46,6 +52,14 @@ export const Detalhes = () => {
       }
     });
   }, [id, search]);
+
+  useEffect(() => {
+    const historyC = new historyController();
+
+    historyC.addInHistory(userToken, 1, formatStringWithReplaceSlash(search)).then(() => {
+      console.log('history adicionado com sucesso!');
+    });
+  }, []);
 
   return (
     <>

@@ -13,6 +13,10 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
   const [genresList, setGenresList] = useState<Genre[]>([]);
   const [genres, setGenres] = useState<ExternalGenre>();
 
+  const user = localStorage.getItem('user');
+  const userJson = JSON.parse(user!);
+  const userToken = userJson.token;
+
   useEffect(() => {
     const controller = new getGenresController();
     controller.handle(alldata.media_type).then((data) => {
@@ -46,9 +50,9 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
           </>
         ) : (
           <>
-            
+
             <img
-              style={{zIndex: "1"}}
+              style={{ zIndex: "1" }}
               className="h-52 w-full rounded-t-lg shadow-md object-cover object-center"
               src={`https://image.tmdb.org/t/p/w1280${alldata.backdrop_path}`}
               alt="imgPoster"
@@ -113,7 +117,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
               <Chip
                 label={genre.name}
                 color="success"
-                
+
                 key={`chip_${String(Math.random() * 1000)}`}
               />
             ))}

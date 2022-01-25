@@ -60,8 +60,8 @@
     background-color: rgba(39, 39, 42, 1);
 }
 ::-webkit-scrollbar {
-    height: 4px;
-    width: 6px;
+    height: 10px;
+    width: 12px;
     background: rgb(85, 85, 92);
 }
 ::-webkit-scrollbar-thumb {
