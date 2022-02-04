@@ -1,6 +1,7 @@
 import { ImageListItemBar, Rating, Skeleton } from "@mui/material";
 import { ApiExternalResults } from "backend/types/ApiExternalResponse";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import { memo } from 'react';
@@ -8,7 +9,6 @@ import "./styles.css";
 import { postFavoriteController } from "backend/controllers/laravel-api/postFavoriteController";
 import { postWatchlistController } from "backend/controllers/laravel-api/postWatchlistController";
 import { ToggleIconButton } from "components/ToggleIconButton";
-import StarIcon from '@mui/icons-material/Star';
 import { useSnackbar } from 'notistack';
 import { historyController } from "backend/controllers/laravel-api/historyController";
 

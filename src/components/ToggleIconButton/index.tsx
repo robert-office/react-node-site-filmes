@@ -7,7 +7,9 @@ export type toggleProps = {
         initialValue?: boolean;
         activeIcon: JSX.Element; 
         disabledIcon: JSX.Element;
-        fn: () => void
+        fn: () => void;
+        isDarkable? : boolean,
+        id? : string
     }
 }
 
@@ -18,12 +20,13 @@ export const ToggleIconButton = ({ Props }: toggleProps) => {
     return (
         <>
             <IconButton
+                id={Props.id}
                 onClick={() => {
                     setActive(!active);
                     Props.fn();
                 }}
 
-                sx={{ color: 'white' }}
+                sx={{ color: Props.isDarkable ? 'gray' : 'white' }}
                 aria-label={`toggleButton`}
             >
             
