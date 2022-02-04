@@ -10,7 +10,7 @@ type EnvolvimentLabel = {
 
 export const Label = ({ envolviment }: EnvolvimentLabel) => {
   return (
-    <div className="relative flex items-end font-bold flex-row justify-between">
+    <div className={`relative flex items-end font-bold flex-row justify-between ${envolviment.NoButton ? "my-10" : ""}`}>
       <div className="flex flex-col sm:flex-row ">
         <h2 className="text-2xl dark:text-gray-50 text-gray-600">{envolviment.SectionTitle} </h2>
         <a className="sm:ml-10 flex items-center text-gray-400 dark:text-gray-300 sm:mt-0 mt-2">

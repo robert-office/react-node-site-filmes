@@ -271,7 +271,7 @@ export const HeaderBackdrop = ({ alldata }: Props) => {
               </Button>
             </ButtonGroup>
 
-            <ButtonGroup variant="outlined" aria-label="watchlist" color="primary" className="bg-gray-100 dark:bg-gray-700">
+            <ButtonGroup variant="outlined" aria-label="watchlist" className="bg-gray-100 dark:bg-gray-700">
               <Button size="large" sx={{ width: !matches ? '100%' : 'auto' }}
                 onClick={() => {
                   redirectTheClick('watchlistID');
