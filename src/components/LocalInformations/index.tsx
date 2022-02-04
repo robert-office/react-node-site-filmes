@@ -9,44 +9,13 @@ import { UserContext } from "utils/userContext";
 
 const fileTypes = ["JPG", "PNG", "GIF", "jpeg", "png", "gif", "jpg"];
 
-const CssTextFieldBlack = styled(TextField)({
-    '& label.Mui-focused': {
-        color: 'white',
-    },
-    '& label': {
-        color: 'white',
-    },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: 'white',
-        },
-        '&:hover fieldset': {
-            borderColor: 'rgba(59, 130, 246, 0.5)',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: 'rgba(59, 130, 246, 0.5)',
-        },
-    },
-});
-
 const CssTextFieldWhite = styled(TextField)({
-    '& label.Mui-focused': {
+    '.MuiInputBase-input': {
         color: 'gray',
     },
-    '& label': {
-        color: 'gray',
-    },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: 'gray',
-        },
-        '&:hover fieldset': {
-            borderColor: 'rgba(59, 130, 246, 0.5)',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: 'rgba(59, 130, 246, 0.5)',
-        },
-    },
+    '& .MuiInputBase-input fieldset': {
+        borderColor: 'green',
+    }
 });
 
 export const LocalInformations = () => {
@@ -151,20 +120,9 @@ export const LocalInformations = () => {
                 <form onSubmit={update} id="updateForm" className="relative sm:w-1/2 w-full mt-2">
                     <fieldset className="relative space-y-4 w-full flex flex-col border black:border-gray-100 border-warmGray-400 py-2 px-2 rounded">
                         <legend className="text-lg font-bold dark:text-white text-gray-500">Informações Pessoais</legend>
-
-                        {themeDark ? (
-                            <>
-                                <CssTextFieldBlack defaultValue={value.user.name} label="Nome" name="name" id="custom-css-outlined-input" sx={{ input: { color: 'white', width: '100%' } }} />
-                                <CssTextFieldBlack defaultValue={value.user.email} label="E-mail" type="email" disabled id="custom-css-outlined-input" sx={{ input: { color: 'white' } }} />
-                                <CssTextFieldBlack defaultValue={value.user.descricao} multiline minRows={4} name="descricao" maxRows={4} label="Descrição" id="custom-css-outlined-input" sx={{ input: { color: 'white' } }} />
-                            </>
-                        ) : (
-                            <>
-                                <CssTextFieldWhite label="Nome" defaultValue={value.user.name} name="name" id="custom-css-outlined-input" sx={{ input: { color: 'gray', width: '100%' } }} />
-                                <CssTextFieldWhite label="E-mail" defaultValue={value.user.email} type="email" disabled id="custom-css-outlined-input" sx={{ input: { color: 'gray' } }} />
-                                <CssTextFieldWhite multiline minRows={4} defaultValue={value.user.descricao} name="descricao" maxRows={4} label="Descrição" id="custom-css-outlined-input" sx={{ input: { color: 'gray' } }} />
-                            </>
-                        )}
+                        <CssTextFieldWhite label="Nome" defaultValue={value.user.name} name="name" sx={{ input: { color: 'gray', width: '100%' } }} />
+                        <CssTextFieldWhite label="E-mail" defaultValue={value.user.email} type="email" disabled sx={{ input: { color: 'gray' } }} />
+                        <CssTextFieldWhite multiline minRows={4} defaultValue={value.user.descricao} name="descricao" maxRows={4} label="Descrição" />
 
                         <button
                             type="submit"
