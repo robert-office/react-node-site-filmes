@@ -72,4 +72,4 @@ As imagens dos filmes incluídos neste projetos foram retiradas do site [The Mov
 
 
 <!--Bottom session-->
-<br><h4 align=center>Feito por <a target="_blank" href="https://robert-office.github.io/robert-curriculum" >Robert Uillians</a></h4>
+<br><h4 align=center>Feito por <a target="_blank" href="https://robert-curriculo.netlify.app/" >Robert Uillians</a></h4>
